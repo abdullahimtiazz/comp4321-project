@@ -9,6 +9,7 @@ import time
 
 class Crawler:
     def __init__(self, start_url: str, max_pages: int = 30):
+        self.title=""
         self.start_url = start_url
         self.max_pages = max_pages
         self.index = InvertedIndex()
@@ -41,8 +42,8 @@ class Crawler:
     def _extract_title(self, html: str) -> str:
         """Extract title from HTML."""
         soup = BeautifulSoup(html, "html.parser")
-        title_tag = soup.find("title")
-        return title_tag.get_text() if title_tag else ""
+        self.title = soup.find("title")
+        return self.title.get_text() if self.title else ""
 
     def crawl(self):
         """Crawl using BFS and populate the database."""
@@ -72,9 +73,9 @@ class Crawler:
                 )
 
                 # Extract and index title words
-                title = self._extract_title(html)
+                self.title = self._extract_title(html)
                 title_words = [
-                    word.lower() for word in re.findall(r"\b[\w']+\b", title)
+                    word.lower() for word in re.findall(r"\b[\w']+\b", self.title)
                     if word.lower() not in self.stopwords
                 ]
                 self.index.add_entry_title(
@@ -104,47 +105,50 @@ class Crawler:
                 print(f"Error fetching {url}: {e}")
 
     def generate_spider_result(self):
-        """Generate spider_result.txt per the project specifications."""
+        """Generate spider_result.txt with per-page blocks separated by hyphens."""
         with open("spider_result.txt", "w") as f:
-        # Parent-child links section
-            f.write("Parent-Child Links:\n")
+            # Fetch all crawled pages
             self.index.cursor.execute('''
-            SELECT p1.url, GROUP_CONCAT(p2.url, ', ')
-            FROM parent_child_links pc
-            JOIN pages p1 ON pc.parent_id = p1.page_id
-            JOIN pages p2 ON pc.child_id = p2.page_id
-            GROUP BY p1.url
-        ''')
-            for parent, children in self.index.cursor.fetchall():
-                f.write(f"Parent: {parent}\n")
-                f.write(f"Children: {children}\n\n")
-
-            # Inverted index section (body and title)
-            f.write("\nInverted Index (Body and Title):\n")
-            self.index.cursor.execute('''
-                SELECT p.url, w.word, 
-                    COALESCE(ib.frequency, 0) AS body_freq,
-                    COALESCE(it.frequency, 0) AS title_freq
-                FROM pages p
-                LEFT JOIN inverted_index_body ib ON p.page_id = ib.page_id
-                LEFT JOIN inverted_index_title it ON p.page_id = it.page_id
-                LEFT JOIN words w ON w.word_id = ib.word_id OR w.word_id = it.word_id
-                ORDER BY p.url, w.word
+                SELECT title, url, last_modified, size FROM pages
             ''')
-            current_url = None
-            for url, word, body_freq, title_freq in self.index.cursor.fetchall():
-                if url != current_url:
-                    current_url = url
-                    f.write(f"\nURL: {url}\n")
-                    f.write(f"Keywords: {self._get_top_keywords(url)}\n")  # Top 5 keywords
-                if word:
-                    f.write(f"{word} (Body={body_freq}, Title={title_freq})\n")
+            pages = self.index.cursor.fetchall()
 
-            # Page metadata (last modified and size)
-            f.write("\nPage Metadata:\n")
-            self.index.cursor.execute('SELECT url, last_modified, size FROM pages')
-            for url, last_modified, size in self.index.cursor.fetchall():
-                f.write(f"{url} | Last Modified: {last_modified} | Size: {size} bytes\n")
+            for idx, (title, url, last_modified, size) in enumerate(pages):
+                # Page metadata
+                f.write(f"Page title: {title}\n")
+                f.write(f"URL: {url}\n")
+                f.write(f"Last Modification Date: {last_modified if last_modified else 'N/A'}\n")
+                f.write(f"Size: {size} bytes\n")
+
+                # Top 5 keywords (excluding stopwords)
+                keywords = self._get_top_keywords(url)
+                f.write(f"Keywords: {keywords}\n")
+
+                # Parent links
+                self.index.cursor.execute('''
+                    SELECT p1.url 
+                    FROM parent_child_links pc
+                    JOIN pages p1 ON pc.parent_id = p1.page_id
+                    JOIN pages p2 ON pc.child_id = p2.page_id
+                    WHERE p2.url = ?
+                ''', (url,))
+                parents = [row[0] for row in self.index.cursor.fetchall()]
+                f.write(f"Parent Links: {', '.join(parents) if parents else 'None'}\n")
+
+                # Child links
+                self.index.cursor.execute('''
+                    SELECT p2.url 
+                    FROM parent_child_links pc
+                    JOIN pages p1 ON pc.parent_id = p1.page_id
+                    JOIN pages p2 ON pc.child_id = p2.page_id
+                    WHERE p1.url = ?
+                ''', (url,))
+                children = [row[0] for row in self.index.cursor.fetchall()]
+                f.write(f"Child Links: {', '.join(children) if children else 'None'}\n")
+
+                # Add separator (hyphens) after each page except the last one
+                if idx < len(pages) - 1:
+                    f.write("\n----------------\n\n")
 
     def _get_top_keywords(self, url: str) -> str:
         """Get top 5 stemmed keywords (excluding stopwords) for a page."""
@@ -153,11 +157,12 @@ class Crawler:
             FROM words w
             LEFT JOIN inverted_index_body ib ON w.word_id = ib.word_id
             LEFT JOIN inverted_index_title it ON w.word_id = it.word_id
-            LEFT JOIN pages p ON ib.page_id = p.page_id OR it.page_id = p.page_id
+            JOIN pages p ON ib.page_id = p.page_id OR it.page_id = p.page_id
             WHERE p.url = ? AND w.word NOT IN ({})
+            GROUP BY w.word
             ORDER BY total DESC
             LIMIT 5
-        '''.format(','.join(['?']*len(self.stopwords))), (url, *self.stopwords))
+        '''.format(','.join(['?'] * len(self.stopwords))), (url, *self.stopwords))
         
         keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
         return '; '.join(keywords) if keywords else "None"

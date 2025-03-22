@@ -11,6 +11,7 @@ class InvertedIndex:
         """Create all tables per the schema design."""
         self.cursor.executescript('''
             CREATE TABLE IF NOT EXISTS pages (
+                title TEXT,
                 page_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 url TEXT UNIQUE NOT NULL,
                 last_modified TEXT,
