@@ -157,7 +157,7 @@ class Crawler:
                     LIMIT 10
                 ''', (url,))
                 children = [row[0] for row in self.index.cursor.fetchall()]
-                # f.write(f"Child Links: {',\n'.join(children) if children else 'None'}\n")
+                f.write(f"Child Links: {',\n'.join(children) if children else 'None'}\n")
 
                 # Add separator (hyphens) after each page except the last one
                 if idx < len(pages) - 1:
