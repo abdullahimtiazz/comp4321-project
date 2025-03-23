@@ -10,13 +10,13 @@ stay tuned :))
 4. Test program and get "spider_result.txt": python main.py
 
 # Output Format
-Page title:
-URL:
-Last Modificatoin Date:
-Size:
-Keywords:
-Parent Links:
-Child Links:
+- Page title:
+- URL:
+- Last Modification Date:
+- Size:
+- Keywords:
+- Parent Links:
+- Child Links:
 
 Note that Keywords are formatted as follows: {word}({frequency});
 
