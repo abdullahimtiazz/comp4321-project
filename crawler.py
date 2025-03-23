@@ -157,7 +157,7 @@ class Crawler:
                     LIMIT 10
                 ''', (url,))
                 children = [row[0] for row in self.index.cursor.fetchall()]
-                f.write(f"Child Links: {',\n'.join(children) if children else 'None'}\n")
+                # f.write(f"Child Links: {',\n'.join(children) if children else 'None'}\n")
 
                 # Add separator (hyphens) after each page except the last one
                 if idx < len(pages) - 1:
@@ -183,3 +183,23 @@ class Crawler:
         
         keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
         return '; '.join(keywords) if keywords else "None"
+    
+    def get_word_frequency_body(self, word: str) -> int:
+        """Get the total frequency of a word in the body across all pages."""
+        self.index.cursor.execute('''
+            SELECT page_frequency 
+            FROM inverted_index_body 
+            WHERE word_id = (SELECT word_id FROM words WHERE word = ?)
+        ''', (word,))
+        row = self.index.cursor.fetchone()
+        return row[0] if row else 0
+    
+    def get_word_frequency_title(self, word: str) -> int:
+        """Get the total frequency of a word in the body across all pages."""
+        self.index.cursor.execute('''
+            SELECT page_frequency 
+            FROM inverted_index_title 
+            WHERE word_id = (SELECT word_id FROM words WHERE word = ?)
+        ''', (word,))
+        row = self.index.cursor.fetchone()
+        return row[0] if row else 0

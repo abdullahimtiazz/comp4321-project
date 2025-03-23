@@ -90,9 +90,42 @@ class Database:
             ''', (title, url, last_modified, size))
             self.conn.commit()
             return self.cursor.lastrowid
+    
+    # def _update_inverted_index_body(self, word_id: int):
+    #     """Update the inverted_index_body table with the total frequency of a word."""
+    #     # print("ok")
+    #     self.cursor.execute('''
+    #         SELECT SUM(frequency) 
+    #         FROM forward_index_body 
+    #         WHERE word_id = ?
+    #     ''', (word_id,))
+    #     total_frequency = self.cursor.fetchone()[0] or 0
+
+    #     self.cursor.execute('''
+    #         INSERT OR REPLACE INTO inverted_index_body (word_id, page_frequency)
+    #         VALUES (?, ?)
+    #     ''', (word_id, total_frequency))
+    #     # print("word_id: ", word_id, "total_frequency: ", total_frequency)
+    #     self.conn.commit()
+
+    # def _update_inverted_index_title(self, word_id: int):
+    #     """Update the inverted_index_title table with the total frequency of a word."""
+    #     self.cursor.execute('''
+    #         SELECT SUM(frequency) 
+    #         FROM forward_index_title 
+    #         WHERE word_id = ?
+    #     ''', (word_id,))
+    #     total_frequency = self.cursor.fetchone()[0] or 0
+
+    #     self.cursor.execute('''
+    #         INSERT OR REPLACE INTO inverted_index_title (word_id, page_frequency)
+    #         VALUES (?, ?)
+    #     ''', (word_id, total_frequency))
+    #     self.conn.commit()
 
     def add_entry_body(self, title: str, url: str, words: List[str], last_modified: str, size: int):
         """Add words from the page body to forward_index_body."""
+        # print("ok")
         page_id = self._get_or_create_page_id(title, url, last_modified, size)
         word_freq = {}
         for word in words:
@@ -104,6 +137,12 @@ class Database:
                 INSERT OR REPLACE INTO forward_index_body (word_id, page_id, frequency)
                 VALUES (?, ?, COALESCE((SELECT frequency FROM forward_index_body WHERE word_id=? AND page_id=?), 0) + ?)
             ''', (word_id, page_id, word_id, page_id, freq))
+            # print("ok")
+            # self._update_inverted_index_body(word_id)  # Update inverted index
+            self.cursor.execute('''
+                INSERT OR REPLACE INTO inverted_index_body (word_id, page_frequency)
+                VALUES (?, COALESCE((SELECT page_frequency FROM inverted_index_body WHERE word_id=?), 0) + ?)
+            ''', (word_id, word_id, freq))
         self.conn.commit()
 
     def add_entry_title(self, title: str,url: str, words: List[str], last_modified: str, size: int):
@@ -119,6 +158,12 @@ class Database:
                 INSERT OR REPLACE INTO forward_index_title (word_id, page_id, frequency)
                 VALUES (?, ?, COALESCE((SELECT frequency FROM forward_index_title WHERE word_id=? AND page_id=?), 0) + ?)
             ''', (word_id, page_id, word_id, page_id, freq))
+            # self._update_inverted_index_title(word_id)  # Update inverted index
+            self.cursor.execute('''
+                INSERT OR REPLACE INTO inverted_index_title (word_id, page_frequency)
+                VALUES (?, COALESCE((SELECT page_frequency FROM inverted_index_title WHERE word_id=?), 0) + ?)
+            ''', (word_id, word_id, freq))
+
         self.conn.commit()
 
     def add_parent_child_link(self, title: str, parent_url: str, child_url: str):
@@ -134,3 +179,5 @@ class Database:
     def close(self):
         """Close the database connection."""
         self.conn.close()
+
+
