@@ -21,4 +21,4 @@ stay tuned :))
 Note that Keywords are formatted as follows: {word}({frequency});
 
 # Database Schema
-TBD
+Please refer to the word document (.doc file) in the same folder.
