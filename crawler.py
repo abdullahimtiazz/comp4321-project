@@ -15,12 +15,13 @@ class Crawler:
         self.max_pages = max_pages
         self.index = Database()
         self.visited = set()
-        self.queue = deque([(start_url, None)])  # (url, parent_url)
+        self.queue = deque([(start_url, None)])  # (url, parent_url), BFS queue
         self.stopwords = self._load_stopwords("stopwords.txt")
         self.upload_file = "spider_result.txt"
 
     def _load_stopwords(self, path: str) -> set:
         """Load and stem stopwords from a file."""
+
         stemmer = PorterStemmer()
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -34,12 +35,12 @@ class Crawler:
 
     def _should_fetch(self, url: str) -> bool:
         """Check if the URL needs to be fetched (based on last_modified)."""
+
         self.index.cursor.execute('SELECT last_modified FROM pages WHERE url = ?', (url,))
         row = self.index.cursor.fetchone()
         if not row:
-            return True  # New URL
+            return True  
         else:
-            # Implement logic to check last_modified (requires HTTP HEAD request)
             response = requests.get(url, timeout=10)
             if row[0] != response.headers.get("Last-Modified", ""):
                 return True
@@ -52,11 +53,12 @@ class Crawler:
         return self.title.get_text() if self.title else ""
 
     def crawl(self):
-        """Crawl using BFS and populate the database."""
+        """Crawl using BFS (queue structure used) and populate the database."""
+
         stemmer = PorterStemmer()
 
         page_count = 0
-        while self.queue and page_count < self.max_pages:
+        while self.queue and page_count < self.max_pages:       #queue used for BFS
             url, parent_url = self.queue.popleft()
             if url in self.visited or not self._should_fetch(url):
                 continue
@@ -118,6 +120,7 @@ class Crawler:
 
     def generate_spider_result(self):
         """Generate spider_result.txt with per-page blocks separated by hyphens."""
+
         with open(self.upload_file, "w") as f:
             # Fetch all crawled pages
             self.index.cursor.execute('''

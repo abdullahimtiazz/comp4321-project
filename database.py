@@ -2,13 +2,14 @@ import sqlite3
 from typing import List, Tuple
 
 class Database:
-    def __init__(self, db_name: str = "search_engine.db"):
+    def __init__(self, db_name: str = "search_engine.db"):  # Create a database connection and cursor at search_engine.db
         self.conn = sqlite3.connect(db_name)
         self.cursor = self.conn.cursor()
         self._create_tables()
 
-    def _create_tables(self):
+    def _create_tables(self):      
         """Create all tables per the schema design."""
+
         self.cursor.executescript('''
             CREATE TABLE IF NOT EXISTS pages (
                 title TEXT,
@@ -66,24 +67,26 @@ class Database:
         ''')
         self.conn.commit()
 
-    def _get_or_create_word_id(self, word: str) -> int:
+    def _get_or_create_word_id(self, word: str) -> int: 
         """Get word_id or insert a new word into `words` table."""
+
         self.cursor.execute('SELECT word_id FROM words WHERE word = ?', (word,))
         row = self.cursor.fetchone()
-        if row:
+        if row:     # If the word is already in the table, return the word_id
             return row[0]
-        else:
+        else:       # else, insert the word and return the word_id.
             self.cursor.execute('INSERT INTO words (word) VALUES (?)', (word,))
             self.conn.commit()
             return self.cursor.lastrowid
 
     def _get_or_create_page_id(self, title:str, url: str, last_modified: str, size: int) -> int:
         """Get page_id or insert a new page into `pages` table."""
+
         self.cursor.execute('SELECT page_id FROM pages WHERE url = ?', (url,))
         row = self.cursor.fetchone()
-        if row:
+        if row:     # If the page is already in the table, return the page_id
             return row[0]
-        else:
+        else:       # else, insert the page and return the page_id.
             self.cursor.execute('''
                 INSERT INTO pages (title, url, last_modified, size)
                 VALUES (?, ?, ?, ?)
@@ -123,15 +126,14 @@ class Database:
     #     ''', (word_id, total_frequency))
     #     self.conn.commit()
 
-    def add_entry_body(self, title: str, url: str, words: List[str], last_modified: str, size: int):
+    def add_entry_body(self, title: str, url: str, words: List[str], last_modified: str, size: int):  
         """Add words from the page body to forward_index_body."""
-        # print("ok")
         page_id = self._get_or_create_page_id(title, url, last_modified, size)
         word_freq = {}
-        for word in words:
+        for word in words:      # Count the frequency of each word in the body of the page.
             word_freq[word] = word_freq.get(word, 0) + 1
 
-        for word, freq in word_freq.items():
+        for word, freq in word_freq.items():    #Insert into the database.
             word_id = self._get_or_create_word_id(word)
             self.cursor.execute('''
                 INSERT OR REPLACE INTO forward_index_body (word_id, page_id, frequency)
@@ -147,12 +149,13 @@ class Database:
 
     def add_entry_title(self, title: str,url: str, words: List[str], last_modified: str, size: int):
         """Add words from the page title to forward_index_title."""
+
         page_id = self._get_or_create_page_id(title, url, last_modified, size)
         word_freq = {}
-        for word in words:
+        for word in words:      # Count the frequency of each word in the title of the page.
             word_freq[word] = word_freq.get(word, 0) + 1
 
-        for word, freq in word_freq.items():
+        for word, freq in word_freq.items():        #Insert into the database.
             word_id = self._get_or_create_word_id(word)
             self.cursor.execute('''
                 INSERT OR REPLACE INTO forward_index_title (word_id, page_id, frequency)
@@ -168,6 +171,7 @@ class Database:
 
     def add_parent_child_link(self, title: str, parent_url: str, child_url: str):
         """Add parent-child relationship."""
+
         parent_id = self._get_or_create_page_id(title, parent_url, None, None)
         child_id = self._get_or_create_page_id(title, child_url, None, None)
         self.cursor.execute('''
