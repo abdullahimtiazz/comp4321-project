@@ -72,12 +72,15 @@ class Crawler:
                     if word.lower() not in self.stopwords
                 ]
 
+                print(title_words)
                 # Extract and index body words (filter stopwords)
                 body_text = soup.get_text(separator=" ", strip=True)
                 body_words = [
                     word.lower() for word in re.findall(r"\b[\w']+\b", body_text)
                     if word.lower() not in self.stopwords
                 ]
+
+                print(body_words)
                 self.index.add_entry_body(self.title,
                     url, body_words,
                     last_modified=response.headers.get("Last-Modified", ""),

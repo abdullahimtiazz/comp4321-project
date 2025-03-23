@@ -46,12 +46,14 @@ class Database:
                 word_id INTEGER,
                 page_frequency INTEGER,
                 PRIMARY KEY (word_id)
+                FOREIGN KEY (word_id) REFERENCES words(word_id)
             );
                                   
             CREATE TABLE IF NOT EXISTS inverted_index_body (
                 word_id INTEGER,
                 page_frequency INTEGER,
                 PRIMARY KEY (word_id)
+                FOREIGN KEY (word_id) REFERENCES words(word_id)
             );
             
             CREATE TABLE IF NOT EXISTS parent_child_links (
