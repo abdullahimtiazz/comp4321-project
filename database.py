@@ -1,7 +1,7 @@
 import sqlite3
 from typing import List, Tuple
 
-class InvertedIndex:
+class Database:
     def __init__(self, db_name: str = "search_engine.db"):
         self.conn = sqlite3.connect(db_name)
         self.cursor = self.conn.cursor()
@@ -12,6 +12,7 @@ class InvertedIndex:
         self.cursor.executescript('''
             CREATE TABLE IF NOT EXISTS pages (
                 title TEXT,
+                body TEXT,
                 page_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 url TEXT UNIQUE NOT NULL,
                 last_modified TEXT,
@@ -22,8 +23,8 @@ class InvertedIndex:
                 word_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 word TEXT UNIQUE NOT NULL
             );
-            
-            CREATE TABLE IF NOT EXISTS inverted_index_body (
+
+            CREATE TABLE IF NOT EXISTS forward_index_body (
                 word_id INTEGER,
                 page_id INTEGER,
                 frequency INTEGER,
@@ -32,13 +33,25 @@ class InvertedIndex:
                 FOREIGN KEY (page_id) REFERENCES pages(page_id)
             );
             
-            CREATE TABLE IF NOT EXISTS inverted_index_title (
+            CREATE TABLE IF NOT EXISTS forward_index_title (
                 word_id INTEGER,
                 page_id INTEGER,
                 frequency INTEGER,
                 PRIMARY KEY (word_id, page_id),
                 FOREIGN KEY (word_id) REFERENCES words(word_id),
                 FOREIGN KEY (page_id) REFERENCES pages(page_id)
+            );
+                                  
+            CREATE TABLE IF NOT EXISTS inverted_index_body (
+                word_id INTEGER,
+                page_frequency INTEGER,
+                PRIMARY KEY (word_id)
+            );
+                                  
+            CREATE TABLE IF NOT EXISTS inverted_index_body (
+                word_id INTEGER,
+                page_frequency INTEGER,
+                PRIMARY KEY (word_id)
             );
             
             CREATE TABLE IF NOT EXISTS parent_child_links (
@@ -62,7 +75,7 @@ class InvertedIndex:
             self.conn.commit()
             return self.cursor.lastrowid
 
-    def _get_or_create_page_id(self, url: str, last_modified: str, size: int) -> int:
+    def _get_or_create_page_id(self, title:str, url: str, last_modified: str, size: int) -> int:
         """Get page_id or insert a new page into `pages` table."""
         self.cursor.execute('SELECT page_id FROM pages WHERE url = ?', (url,))
         row = self.cursor.fetchone()
@@ -70,15 +83,15 @@ class InvertedIndex:
             return row[0]
         else:
             self.cursor.execute('''
-                INSERT INTO pages (url, last_modified, size)
-                VALUES (?, ?, ?)
-            ''', (url, last_modified, size))
+                INSERT INTO pages (title, url, last_modified, size)
+                VALUES (?, ?, ?, ?)
+            ''', (title, url, last_modified, size))
             self.conn.commit()
             return self.cursor.lastrowid
 
-    def add_entry_body(self, url: str, words: List[str], last_modified: str, size: int):
-        """Add words from the page body to inverted_index_body."""
-        page_id = self._get_or_create_page_id(url, last_modified, size)
+    def add_entry_body(self, title: str, url: str, words: List[str], last_modified: str, size: int):
+        """Add words from the page body to forward_index_body."""
+        page_id = self._get_or_create_page_id(title, url, last_modified, size)
         word_freq = {}
         for word in words:
             word_freq[word] = word_freq.get(word, 0) + 1
@@ -86,14 +99,14 @@ class InvertedIndex:
         for word, freq in word_freq.items():
             word_id = self._get_or_create_word_id(word)
             self.cursor.execute('''
-                INSERT OR REPLACE INTO inverted_index_body (word_id, page_id, frequency)
-                VALUES (?, ?, COALESCE((SELECT frequency FROM inverted_index_body WHERE word_id=? AND page_id=?), 0) + ?)
+                INSERT OR REPLACE INTO forward_index_body (word_id, page_id, frequency)
+                VALUES (?, ?, COALESCE((SELECT frequency FROM forward_index_body WHERE word_id=? AND page_id=?), 0) + ?)
             ''', (word_id, page_id, word_id, page_id, freq))
         self.conn.commit()
 
-    def add_entry_title(self, url: str, words: List[str], last_modified: str, size: int):
-        """Add words from the page title to inverted_index_title."""
-        page_id = self._get_or_create_page_id(url, last_modified, size)
+    def add_entry_title(self, title: str,url: str, words: List[str], last_modified: str, size: int):
+        """Add words from the page title to forward_index_title."""
+        page_id = self._get_or_create_page_id(title, url, last_modified, size)
         word_freq = {}
         for word in words:
             word_freq[word] = word_freq.get(word, 0) + 1
@@ -101,15 +114,15 @@ class InvertedIndex:
         for word, freq in word_freq.items():
             word_id = self._get_or_create_word_id(word)
             self.cursor.execute('''
-                INSERT OR REPLACE INTO inverted_index_title (word_id, page_id, frequency)
-                VALUES (?, ?, COALESCE((SELECT frequency FROM inverted_index_title WHERE word_id=? AND page_id=?), 0) + ?)
+                INSERT OR REPLACE INTO forward_index_title (word_id, page_id, frequency)
+                VALUES (?, ?, COALESCE((SELECT frequency FROM forward_index_title WHERE word_id=? AND page_id=?), 0) + ?)
             ''', (word_id, page_id, word_id, page_id, freq))
         self.conn.commit()
 
-    def add_parent_child_link(self, parent_url: str, child_url: str):
+    def add_parent_child_link(self, title: str, parent_url: str, child_url: str):
         """Add parent-child relationship."""
-        parent_id = self._get_or_create_page_id(parent_url, None, None)
-        child_id = self._get_or_create_page_id(child_url, None, None)
+        parent_id = self._get_or_create_page_id(title, parent_url, None, None)
+        child_id = self._get_or_create_page_id(title, child_url, None, None)
         self.cursor.execute('''
             INSERT OR IGNORE INTO parent_child_links (parent_id, child_id)
             VALUES (?, ?)

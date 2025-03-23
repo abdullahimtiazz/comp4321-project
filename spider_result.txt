@@ -1,54 +1,70 @@
-Page title: None
+Page title: Test page
 URL: https://comp4321-hkust.github.io/testpages/testpage.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 627 bytes
 Keywords: books(2); cse(2); department(2); hkust(2); movie(2)
 Parent Links: None
-Child Links: https://comp4321-hkust.github.io/testpages/ust_cse.htm, https://comp4321-hkust.github.io/testpages/news.htm, https://comp4321-hkust.github.io/testpages/books.htm, https://comp4321-hkust.github.io/testpages/Movie.htm
+Child Links: https://comp4321-hkust.github.io/testpages/ust_cse.htm,
+https://comp4321-hkust.github.io/testpages/news.htm,
+https://comp4321-hkust.github.io/testpages/books.htm,
+https://comp4321-hkust.github.io/testpages/Movie.htm
 
 ----------------
 
-Page title: None
+Page title: CSE department of HKUST
 URL: https://comp4321-hkust.github.io/testpages/ust_cse.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 412 bytes
 Keywords: admission(2); cse(2); department(2); hkust(2); main(1)
 Parent Links: https://comp4321-hkust.github.io/testpages/testpage.htm
-Child Links: https://comp4321-hkust.github.io/testpages/ust_cse/PG.htm, https://comp4321-hkust.github.io/testpages/ust_cse/UG.htm
+Child Links: https://comp4321-hkust.github.io/testpages/ust_cse/PG.htm,
+https://comp4321-hkust.github.io/testpages/ust_cse/UG.htm
 
 ----------------
 
-Page title: None
+Page title: News
 URL: https://comp4321-hkust.github.io/testpages/news.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 403 bytes
 Keywords: bbc(2); cnn(2); news(2); main(1)
 Parent Links: https://comp4321-hkust.github.io/testpages/testpage.htm
-Child Links: https://comp4321-hkust.github.io/testpages/news/bbc.htm, https://comp4321-hkust.github.io/testpages/news/cnn.htm
+Child Links: https://comp4321-hkust.github.io/testpages/news/bbc.htm,
+https://comp4321-hkust.github.io/testpages/news/cnn.htm
 
 ----------------
 
-Page title: None
+Page title: books
 URL: https://comp4321-hkust.github.io/testpages/books.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 624 bytes
 Keywords: books(2); articles(1); automated(1); bases(1); classification(1)
 Parent Links: https://comp4321-hkust.github.io/testpages/testpage.htm
-Child Links: https://comp4321-hkust.github.io/testpages/books/book1.htm, https://comp4321-hkust.github.io/testpages/books/book2.htm, https://comp4321-hkust.github.io/testpages/books/book3.htm
+Child Links: https://comp4321-hkust.github.io/testpages/books/book1.htm,
+https://comp4321-hkust.github.io/testpages/books/book2.htm,
+https://comp4321-hkust.github.io/testpages/books/book3.htm
 
 ----------------
 
-Page title: None
+Page title: Movie Index Page
 URL: https://comp4321-hkust.github.io/testpages/Movie.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 19541 bytes
 Keywords: 2004(37); 2002(28); 2003(28); 2000(26); 2001(21)
 Parent Links: https://comp4321-hkust.github.io/testpages/testpage.htm
-Child Links: https://comp4321-hkust.github.io/testpages/Movie/1.html, https://comp4321-hkust.github.io/testpages/Movie/2.html, https://comp4321-hkust.github.io/testpages/Movie/3.html, https://comp4321-hkust.github.io/testpages/Movie/4.html, https://comp4321-hkust.github.io/testpages/Movie/5.html, https://comp4321-hkust.github.io/testpages/Movie/6.html, https://comp4321-hkust.github.io/testpages/Movie/7.html, https://comp4321-hkust.github.io/testpages/Movie/8.html, https://comp4321-hkust.github.io/testpages/Movie/9.html, https://comp4321-hkust.github.io/testpages/Movie/10.html, https://comp4321-hkust.github.io/testpages/Movie/11.html, https://comp4321-hkust.github.io/testpages/Movie/12.html, https://comp4321-hkust.github.io/testpages/Movie/13.html, https://comp4321-hkust.github.io/testpages/Movie/14.html, https://comp4321-hkust.github.io/testpages/Movie/15.html, https://comp4321-hkust.github.io/testpages/Movie/16.html, https://comp4321-hkust.github.io/testpages/Movie/17.html, https://comp4321-hkust.github.io/testpages/Movie/18.html
+Child Links: https://comp4321-hkust.github.io/testpages/Movie/1.html,
+https://comp4321-hkust.github.io/testpages/Movie/2.html,
+https://comp4321-hkust.github.io/testpages/Movie/3.html,
+https://comp4321-hkust.github.io/testpages/Movie/4.html,
+https://comp4321-hkust.github.io/testpages/Movie/5.html,
+https://comp4321-hkust.github.io/testpages/Movie/6.html,
+https://comp4321-hkust.github.io/testpages/Movie/7.html,
+https://comp4321-hkust.github.io/testpages/Movie/8.html,
+https://comp4321-hkust.github.io/testpages/Movie/9.html,
+https://comp4321-hkust.github.io/testpages/Movie/10.html
 
 ----------------
 
-Page title: None
+Page title: PG
 URL: https://comp4321-hkust.github.io/testpages/ust_cse/PG.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 3341 bytes
@@ -58,7 +74,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: UG
 URL: https://comp4321-hkust.github.io/testpages/ust_cse/UG.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 4157 bytes
@@ -68,7 +84,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: BBC news
 URL: https://comp4321-hkust.github.io/testpages/news/bbc.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 523 bytes
@@ -78,7 +94,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: CNN news
 URL: https://comp4321-hkust.github.io/testpages/news/cnn.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 469 bytes
@@ -88,7 +104,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: book1
 URL: https://comp4321-hkust.github.io/testpages/books/book1.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 1650 bytes
@@ -98,7 +114,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: book2
 URL: https://comp4321-hkust.github.io/testpages/books/book2.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 2125 bytes
@@ -108,7 +124,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: book3
 URL: https://comp4321-hkust.github.io/testpages/books/book3.htm
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 2039 bytes
@@ -118,7 +134,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Dinosaur Planet (2003)
 URL: https://comp4321-hkust.github.io/testpages/Movie/1.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 3605 bytes
@@ -128,7 +144,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Isle of Man TT 2004 Review (2004)
 URL: https://comp4321-hkust.github.io/testpages/Movie/2.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 2868 bytes
@@ -138,7 +154,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Character (1997)
 URL: https://comp4321-hkust.github.io/testpages/Movie/3.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 4008 bytes
@@ -148,7 +164,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Paula Abdul's Get Up and Dance (1994)
 URL: https://comp4321-hkust.github.io/testpages/Movie/4.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 2820 bytes
@@ -158,7 +174,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: The Rise and Fall of ECW (2004)
 URL: https://comp4321-hkust.github.io/testpages/Movie/5.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 3928 bytes
@@ -168,7 +184,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Sick (1997)
 URL: https://comp4321-hkust.github.io/testpages/Movie/6.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 5243 bytes
@@ -178,7 +194,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: 8 Man (1992)
 URL: https://comp4321-hkust.github.io/testpages/Movie/7.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 3498 bytes
@@ -188,7 +204,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: What the #$*! Do We Know!? (2004)
 URL: https://comp4321-hkust.github.io/testpages/Movie/8.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 4147 bytes
@@ -198,7 +214,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Class of Nuke 'Em High 2 (1991)
 URL: https://comp4321-hkust.github.io/testpages/Movie/9.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 7075 bytes
@@ -208,7 +224,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Fighter (2001)
 URL: https://comp4321-hkust.github.io/testpages/Movie/10.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 13199 bytes
@@ -218,7 +234,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Full Frame: Documentary Shorts (1999)
 URL: https://comp4321-hkust.github.io/testpages/Movie/11.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 2700 bytes
@@ -228,7 +244,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: My Favorite Brunette (1947)
 URL: https://comp4321-hkust.github.io/testpages/Movie/12.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 6432 bytes
@@ -238,7 +254,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Lord of the Rings: The Return of the King: Extended Edition: Bonus Material (2003)
 URL: https://comp4321-hkust.github.io/testpages/Movie/13.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 2997 bytes
@@ -248,7 +264,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Nature: Antarctica (1982)
 URL: https://comp4321-hkust.github.io/testpages/Movie/14.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 3711 bytes
@@ -258,7 +274,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Neil Diamond: Greatest Hits Live (1988)
 URL: https://comp4321-hkust.github.io/testpages/Movie/15.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 5415 bytes
@@ -268,7 +284,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Screamers (1996)
 URL: https://comp4321-hkust.github.io/testpages/Movie/16.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 3737 bytes
@@ -278,7 +294,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: 7 Seconds (2005)
 URL: https://comp4321-hkust.github.io/testpages/Movie/17.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 3521 bytes
@@ -288,7 +304,7 @@ Child Links: None
 
 ----------------
 
-Page title: None
+Page title: Immortal Beloved (1994)
 URL: https://comp4321-hkust.github.io/testpages/Movie/18.html
 Last Modification Date: Tue, 20 Feb 2024 08:53:32 GMT
 Size: 7583 bytes

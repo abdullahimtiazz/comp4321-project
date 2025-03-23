@@ -3,7 +3,7 @@ from urllib.parse import urljoin
 import requests
 import re
 from typing import List
-from invertedindex import InvertedIndex
+from database import Database
 from collections import deque
 import time
 
@@ -12,7 +12,7 @@ class Crawler:
         self.title=""
         self.start_url = start_url
         self.max_pages = max_pages
-        self.index = InvertedIndex()
+        self.index = Database()
         self.visited = set()
         self.queue = deque([(start_url, None)])  # (url, parent_url)
         self.stopwords = self._load_stopwords("stopwords.txt")
@@ -37,7 +37,10 @@ class Crawler:
             return True  # New URL
         else:
             # Implement logic to check last_modified (requires HTTP HEAD request)
-            return True  # Simplified for example
+            response = requests.get(url, timeout=10)
+            if row[0] != response.headers.get("Last-Modified", ""):
+                return True
+            return False
 
     def _extract_title(self, html: str) -> str:
         """Extract title from HTML."""
@@ -60,25 +63,29 @@ class Crawler:
                 html = response.text
                 soup = BeautifulSoup(html, "html.parser")
 
+
+                # Extract and index title words
+                self.title = self._extract_title(html)
+                print(f"Title: {self.title}")
+                title_words = [
+                    word.lower() for word in re.findall(r"\b[\w']+\b", self.title)
+                    if word.lower() not in self.stopwords
+                ]
+
                 # Extract and index body words (filter stopwords)
                 body_text = soup.get_text(separator=" ", strip=True)
                 body_words = [
                     word.lower() for word in re.findall(r"\b[\w']+\b", body_text)
                     if word.lower() not in self.stopwords
                 ]
-                self.index.add_entry_body(
+                self.index.add_entry_body(self.title,
                     url, body_words,
                     last_modified=response.headers.get("Last-Modified", ""),
                     size=len(response.content)
                 )
 
-                # Extract and index title words
-                self.title = self._extract_title(html)
-                title_words = [
-                    word.lower() for word in re.findall(r"\b[\w']+\b", self.title)
-                    if word.lower() not in self.stopwords
-                ]
                 self.index.add_entry_title(
+                    self.title,
                     url, title_words,
                     last_modified=response.headers.get("Last-Modified", ""),
                     size=len(response.content)
@@ -95,7 +102,7 @@ class Crawler:
 
                 # Record parent-child links
                 if parent_url:
-                    self.index.add_parent_child_link(parent_url, url)
+                    self.index.add_parent_child_link(self.title, parent_url, url)
 
                 self.visited.add(url)
                 page_count += 1
@@ -142,9 +149,10 @@ class Crawler:
                     JOIN pages p1 ON pc.parent_id = p1.page_id
                     JOIN pages p2 ON pc.child_id = p2.page_id
                     WHERE p1.url = ?
+                    LIMIT 10
                 ''', (url,))
                 children = [row[0] for row in self.index.cursor.fetchall()]
-                f.write(f"Child Links: {', '.join(children) if children else 'None'}\n")
+                f.write(f"Child Links: {',\n'.join(children) if children else 'None'}\n")
 
                 # Add separator (hyphens) after each page except the last one
                 if idx < len(pages) - 1:
@@ -155,8 +163,8 @@ class Crawler:
         self.index.cursor.execute('''
             SELECT w.word, (COALESCE(ib.frequency, 0) + COALESCE(it.frequency, 0)) AS total
             FROM words w
-            LEFT JOIN inverted_index_body ib ON w.word_id = ib.word_id
-            LEFT JOIN inverted_index_title it ON w.word_id = it.word_id
+            LEFT JOIN forward_index_body ib ON w.word_id = ib.word_id
+            LEFT JOIN forward_index_title it ON w.word_id = it.word_id
             JOIN pages p ON ib.page_id = p.page_id OR it.page_id = p.page_id
             WHERE p.url = ? AND w.word NOT IN ({})
             GROUP BY w.word
@@ -166,9 +174,4 @@ class Crawler:
         
         keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
         return '; '.join(keywords) if keywords else "None"
-
-if __name__ == "__main__":
-    crawler = Crawler("https://comp4321-hkust.github.io/testpages/testpage.htm")
-    crawler.crawl()
-    crawler.generate_spider_result()
-    crawler.index.close()
+    
