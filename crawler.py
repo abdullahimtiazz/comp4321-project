@@ -6,6 +6,7 @@ from typing import List
 from database import Database
 from collections import deque
 import time
+from nltk.stem import PorterStemmer
 
 class Crawler:
     def __init__(self, start_url: str, max_pages: int = 30):
@@ -19,10 +20,11 @@ class Crawler:
         self.upload_file = "spider_result.txt"
 
     def _load_stopwords(self, path: str) -> set:
-        """Load stopwords from a file."""
+        """Load and stem stopwords from a file."""
+        stemmer = PorterStemmer()
         try:
             with open(path, "r", encoding="utf-8") as f:
-                return set(line.strip() for line in f)
+                return set(stemmer.stem(line.strip()) for line in f)
         except FileNotFoundError:
             print(f"Warning: {path} not found. Using an empty stopwords set.")
             return set()
@@ -51,6 +53,8 @@ class Crawler:
 
     def crawl(self):
         """Crawl using BFS and populate the database."""
+        stemmer = PorterStemmer()
+
         page_count = 0
         while self.queue and page_count < self.max_pages:
             url, parent_url = self.queue.popleft()
@@ -68,15 +72,15 @@ class Crawler:
                 # Extract and index title words
                 self.title = self._extract_title(html)
                 title_words = [
-                    word.lower() for word in re.findall(r"\b[\w']+\b", self.title)
-                    if word.lower() not in self.stopwords
+                    stemmer.stem(word.lower()) for word in re.findall(r"\b[\w']+\b", self.title)
+                    if stemmer.stem(word.lower()) not in self.stopwords
                 ]
 
                 # Extract and index body words (filter stopwords)
                 body_text = soup.get_text(separator=" ", strip=True)
                 body_words = [
-                    word.lower() for word in re.findall(r"\b[\w']+\b", body_text)
-                    if word.lower() not in self.stopwords
+                    stemmer.stem(word.lower()) for word in re.findall(r"\b[\w']+\b", body_text)
+                    if stemmer.stem(word.lower()) not in self.stopwords
                 ]
 
                 self.index.add_entry_body(self.title,
@@ -177,8 +181,5 @@ class Crawler:
         '''.format(','.join(['?'] * len(self.stopwords))), 
         (url, url, *self.stopwords))
         
-        keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
-        return '; '.join(keywords) if keywords else "None"
-            
         keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
         return '; '.join(keywords) if keywords else "None"

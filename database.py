@@ -98,8 +98,6 @@ class Database:
         for word in words:
             word_freq[word] = word_freq.get(word, 0) + 1
 
-        print(word_freq)
-        
         for word, freq in word_freq.items():
             word_id = self._get_or_create_word_id(word)
             self.cursor.execute('''
@@ -114,8 +112,6 @@ class Database:
         word_freq = {}
         for word in words:
             word_freq[word] = word_freq.get(word, 0) + 1
-        
-        print(word_freq)
 
         for word, freq in word_freq.items():
             word_id = self._get_or_create_word_id(word)
