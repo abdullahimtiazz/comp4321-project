@@ -16,6 +16,7 @@ class Crawler:
         self.visited = set()
         self.queue = deque([(start_url, None)])  # (url, parent_url)
         self.stopwords = self._load_stopwords("stopwords.txt")
+        self.upload_file = "spider_result.txt"
 
     def _load_stopwords(self, path: str) -> set:
         """Load stopwords from a file."""
@@ -66,13 +67,11 @@ class Crawler:
 
                 # Extract and index title words
                 self.title = self._extract_title(html)
-                print(f"Title: {self.title}")
                 title_words = [
                     word.lower() for word in re.findall(r"\b[\w']+\b", self.title)
                     if word.lower() not in self.stopwords
                 ]
 
-                print(title_words)
                 # Extract and index body words (filter stopwords)
                 body_text = soup.get_text(separator=" ", strip=True)
                 body_words = [
@@ -80,7 +79,6 @@ class Crawler:
                     if word.lower() not in self.stopwords
                 ]
 
-                print(body_words)
                 self.index.add_entry_body(self.title,
                     url, body_words,
                     last_modified=response.headers.get("Last-Modified", ""),
@@ -116,7 +114,7 @@ class Crawler:
 
     def generate_spider_result(self):
         """Generate spider_result.txt with per-page blocks separated by hyphens."""
-        with open("spider_result.txt", "w") as f:
+        with open(self.upload_file, "w") as f:
             # Fetch all crawled pages
             self.index.cursor.execute('''
                 SELECT title, url, last_modified, size FROM pages
@@ -164,17 +162,23 @@ class Crawler:
     def _get_top_keywords(self, url: str) -> str:
         """Get top 5 stemmed keywords (excluding stopwords) for a page."""
         self.index.cursor.execute('''
-            SELECT w.word, (COALESCE(ib.frequency, 0) + COALESCE(it.frequency, 0)) AS total
+            SELECT w.word, 
+                (COALESCE(ib.frequency, 0) + COALESCE(it.frequency, 0)) AS total
             FROM words w
-            LEFT JOIN forward_index_body ib ON w.word_id = ib.word_id
-            LEFT JOIN forward_index_title it ON w.word_id = it.word_id
-            JOIN pages p ON ib.page_id = p.page_id OR it.page_id = p.page_id
-            WHERE p.url = ? AND w.word NOT IN ({})
-            GROUP BY w.word
+            LEFT JOIN forward_index_body ib 
+                ON w.word_id = ib.word_id 
+                AND ib.page_id = (SELECT page_id FROM pages WHERE url = ?)
+            LEFT JOIN forward_index_title it 
+                ON w.word_id = it.word_id 
+                AND it.page_id = (SELECT page_id FROM pages WHERE url = ?)
+            WHERE w.word NOT IN ({})
             ORDER BY total DESC
             LIMIT 5
-        '''.format(','.join(['?'] * len(self.stopwords))), (url, *self.stopwords))
+        '''.format(','.join(['?'] * len(self.stopwords))), 
+        (url, url, *self.stopwords))
         
         keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
         return '; '.join(keywords) if keywords else "None"
-    
+            
+        keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
+        return '; '.join(keywords) if keywords else "None"
