@@ -8,6 +8,7 @@ from collections import deque
 import time
 from nltk.stem import PorterStemmer
 
+
 class Crawler:
     def __init__(self, start_url: str, max_pages: int = 30):
         self.title=""
@@ -73,27 +74,45 @@ class Crawler:
 
                 # Extract and index title words
                 self.title = self._extract_title(html)
-                title_words = [
-                    stemmer.stem(word.lower()) for word in re.findall(r"\b[\w']+\b", self.title)
-                    if stemmer.stem(word.lower()) not in self.stopwords
-                ]
+                title_words = []
+                title_words_positions = []
+                pos = 0
+                for word in re.findall(r"\b[\w']+\b", self.title):
+                    if stemmer.stem(word.lower()) not in self.stopwords:
+                        title_words.append(stemmer.stem(word.lower()))
+                        title_words_positions.append(pos)
+                    pos += 1
+
+                # title_words = [
+                #     stemmer.stem(word.lower()) for word in re.findall(r"\b[\w']+\b", self.title)
+                #     if stemmer.stem(word.lower()) not in self.stopwords
+                # ]
 
                 # Extract and index body words (filter stopwords)
                 body_text = soup.get_text(separator=" ", strip=True)
-                body_words = [
-                    stemmer.stem(word.lower()) for word in re.findall(r"\b[\w']+\b", body_text)
-                    if stemmer.stem(word.lower()) not in self.stopwords
-                ]
+                body_words = []
+                body_words_positions = []
+                pos = 0
+                for word in re.findall(r"\b[\w']+\b", body_text):
+                    if stemmer.stem(word.lower()) not in self.stopwords:
+                        body_words.append(stemmer.stem(word.lower()))
+                        body_words_positions.append(pos)
+                    pos += 1
+
+                # body_words = [
+                #     stemmer.stem(word.lower()) for word in re.findall(r"\b[\w']+\b", body_text)
+                #     if stemmer.stem(word.lower()) not in self.stopwords
+                # ]
 
                 self.index.add_entry_body(self.title,
-                    url, body_words,
+                    url, body_words, body_words_positions,
                     last_modified=response.headers.get("Last-Modified", ""),
                     size=len(response.content)
                 )
 
                 self.index.add_entry_title(
                     self.title,
-                    url, title_words,
+                    url, title_words, title_words_positions,
                     last_modified=response.headers.get("Last-Modified", ""),
                     size=len(response.content)
                 )
@@ -172,10 +191,10 @@ class Crawler:
             SELECT w.word, 
                 (COALESCE(ib.frequency, 0) + COALESCE(it.frequency, 0)) AS total
             FROM words w
-            LEFT JOIN forward_index_body ib 
+            LEFT JOIN inverted_index_body ib 
                 ON w.word_id = ib.word_id 
                 AND ib.page_id = (SELECT page_id FROM pages WHERE url = ?)
-            LEFT JOIN forward_index_title it 
+            LEFT JOIN inverted_index_title it 
                 ON w.word_id = it.word_id 
                 AND it.page_id = (SELECT page_id FROM pages WHERE url = ?)
             WHERE w.word NOT IN ({})
@@ -185,24 +204,196 @@ class Crawler:
         (url, url, *self.stopwords))
         
         keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
-        return '; '.join(keywords) if keywords else "None"
+        return '; '.join(keywords) if keywords else "None"    
+        
+    # def _get_top_keywords(self, url: str) -> str:
+    #     """Get top 5 stemmed keywords (excluding stopwords) for a page."""
+    #     self.index.cursor.execute('''
+    #         SELECT w.word, 
+    #             (COALESCE(ib.frequency, 0) + COALESCE(it.frequency, 0)) AS total
+    #         FROM words w
+    #         LEFT JOIN inverted_index_body ib 
+    #             ON w.word_id = ib.word_id 
+    #             AND ib.page_id = (SELECT page_id FROM pages WHERE url = ?)
+    #         LEFT JOIN inverted_index_title it 
+    #             ON w.word_id = it.word_id 
+    #             AND it.page_id = (SELECT page_id FROM pages WHERE url = ?)
+    #         WHERE w.word NOT IN ({})
+    #         ORDER BY total DESC
+    #         LIMIT 5
+    #     '''.format(','.join(['?'] * len(self.stopwords))), 
+    #     (url, url, *self.stopwords))
+        
+    #     keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
+    #     return '; '.join(keywords) if keywords else "None"
     
-    def get_word_frequency_body(self, word: str) -> int:
-        """Get the total frequency of a word in the body across all pages."""
-        self.index.cursor.execute('''
-            SELECT page_frequency 
-            FROM inverted_index_body 
-            WHERE word_id = (SELECT word_id FROM words WHERE word = ?)
-        ''', (word,))
-        row = self.index.cursor.fetchone()
-        return row[0] if row else 0
+    # def get_word_frequency_body(self, word: str) -> int:
+    #     """Get the total frequency of a word in the body across all pages."""
+    #     self.index.cursor.execute('''
+    #         SELECT page_frequency 
+    #         FROM inverted_index_body 
+    #         WHERE word_id = (SELECT word_id FROM words WHERE word = ?)
+    #     ''', (word,))
+    #     row = self.index.cursor.fetchone()
+    #     return row[0] if row else 0
     
-    def get_word_frequency_title(self, word: str) -> int:
-        """Get the total frequency of a word in the body across all pages."""
+    # def get_word_frequency_title(self, word: str) -> int:
+    #     """Get the total frequency of a word in the body across all pages."""
+    #     self.index.cursor.execute('''
+    #         SELECT page_frequency 
+    #         FROM inverted_index_title 
+    #         WHERE word_id = (SELECT word_id FROM words WHERE word = ?)
+    #     ''', (word,))
+    #     row = self.index.cursor.fetchone()
+    #     return row[0] if row else 0
+
+    def calculate_body_tf(self, url: str, word: str) -> float:
+        """
+        Calculate term frequency (TF) of a word in a document's body.
+        Returns TF (frequency of the word in this document / max frequency in document)
+        """
+        # Get page_id and word_id
+        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
+        page_row = self.index.cursor.fetchone()
+        if not page_row:
+            return (0.0,0.0) # change back to 0.0 after we don't need to use the true frequency to check
+        page_id = page_row[0]
+        
+        word_id = self.index._get_or_create_word_id(word)
+        
+        # Get this word's frequency in the document
         self.index.cursor.execute('''
-            SELECT page_frequency 
-            FROM inverted_index_title 
-            WHERE word_id = (SELECT word_id FROM words WHERE word = ?)
-        ''', (word,))
-        row = self.index.cursor.fetchone()
-        return row[0] if row else 0
+            SELECT frequency FROM inverted_index_body 
+            WHERE word_id=? AND page_id=?
+        ''', (word_id, page_id))
+        result = self.index.cursor.fetchone()
+        if not result:
+            return (0.0,0.0) # change back to 0.0
+        word_freq = result[0]
+        
+        # Get max frequency in this document
+        self.index.cursor.execute('''
+            SELECT MAX(frequency) FROM inverted_index_body 
+            WHERE page_id=?
+        ''', (page_id,))
+        max_freq = self.index.cursor.fetchone()[0] or 1
+        
+        # Calculate normalized TF
+        return word_freq, word_freq / max_freq #result is the frequency where page_id=page_id, word_id where word_id, remove it after check
+
+    def get_body_positions(self, url: str, word: str) -> List[int]:
+        """
+        Get all positions where a word appears in a document's body.
+        Returns list of positions (empty list if word not found).
+        """
+        # Get page_id and word_id
+        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
+        page_row = self.index.cursor.fetchone()
+        if not page_row:
+            return []
+        page_id = page_row[0]
+        
+        word_id = self.index._get_or_create_word_id(word)
+        
+        # Get positions string from database
+        self.index.cursor.execute('''
+            SELECT positions FROM inverted_index_body 
+            WHERE word_id=? AND page_id=?
+        ''', (word_id, page_id))
+        result = self.index.cursor.fetchone()
+        if not result or not result[0]:
+            return []
+        
+        # Convert comma-separated string to list of integers
+        return [int(pos) for pos in result[0].split(',')]
+        # return result[0]
+    
+    def calculate_body_df(self, word: str) -> int:
+        """
+        Calculate document frequency (DF) of a word in all bodies.
+        Returns number of documents containing this word in their body.
+        """
+        word_id = self.index._get_or_create_word_id(word)
+        
+        self.index.cursor.execute('''
+            SELECT COUNT(DISTINCT page_id) FROM inverted_index_body 
+            WHERE word_id=?
+        ''', (word_id,))
+        result = self.index.cursor.fetchone()
+        return result[0] if result else 0
+    
+    def calculate_title_tf(self, url: str, word: str) -> float:
+        """
+        Calculate term frequency (TF) of a word in a document's title.
+        Returns TF (frequency of the word in this title / max frequency in title)
+        """
+        # Get page_id and word_id
+        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
+        page_row = self.index.cursor.fetchone()
+        if not page_row:
+            return (0.0,0.0) # change back to 0.0
+        page_id = page_row[0]
+        
+        word_id = self.index._get_or_create_word_id(word)
+        
+        # Get this word's frequency in the title
+        self.index.cursor.execute('''
+            SELECT frequency FROM inverted_index_title 
+            WHERE word_id=? AND page_id=?
+        ''', (word_id, page_id))
+        result = self.index.cursor.fetchone()
+        if not result:
+            return (0.0, 0.0) #change back to 0.0
+        word_freq = result[0]
+        
+        # Get max frequency in this title
+        self.index.cursor.execute('''
+            SELECT MAX(frequency) FROM inverted_index_title 
+            WHERE page_id=?
+        ''', (page_id,))
+        max_freq = self.index.cursor.fetchone()[0] or 1
+        
+        # Calculate normalized TF
+        return word_freq, word_freq / max_freq
+    
+    def get_title_positions(self, url: str, word: str) -> List[int]:
+        """
+        Get all positions where a word appears in a document's title.
+        Returns list of positions (empty list if word not found).
+        """
+        # Get page_id and word_id
+        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
+        page_row = self.index.cursor.fetchone()
+        if not page_row:
+            return []
+        page_id = page_row[0]
+        
+        word_id = self.index._get_or_create_word_id(word)
+        
+        # Get positions string from database
+        self.index.cursor.execute('''
+            SELECT positions FROM inverted_index_title 
+            WHERE word_id=? AND page_id=?
+        ''', (word_id, page_id))
+        result = self.index.cursor.fetchone()
+        if not result or not result[0]:
+            return []
+        
+        # Convert comma-separated string to list of integers
+        return [int(pos) for pos in result[0].split(',')]
+        # return result[0]
+    
+    def calculate_title_df(self, word: str) -> int:
+        """
+        Calculate document frequency (DF) of a word in all titles.
+        Returns number of documents containing this word in their title.
+        """
+        word_id = self.index._get_or_create_word_id(word)
+        
+        self.index.cursor.execute('''
+            SELECT COUNT(DISTINCT page_id) FROM inverted_index_title 
+            WHERE word_id=?
+        ''', (word_id,))
+        result = self.index.cursor.fetchone()
+        return result[0] if result else 0
+

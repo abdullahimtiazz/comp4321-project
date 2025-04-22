@@ -25,37 +25,26 @@ class Database:
                 word TEXT UNIQUE NOT NULL
             );
 
-            CREATE TABLE IF NOT EXISTS forward_index_body (
+            CREATE TABLE IF NOT EXISTS inverted_index_body (
                 word_id INTEGER,
                 page_id INTEGER,
                 frequency INTEGER,
+                positions TEXT,   
                 PRIMARY KEY (word_id, page_id),
                 FOREIGN KEY (word_id) REFERENCES words(word_id),
                 FOREIGN KEY (page_id) REFERENCES pages(page_id)
             );
             
-            CREATE TABLE IF NOT EXISTS forward_index_title (
+            CREATE TABLE IF NOT EXISTS inverted_index_title (
                 word_id INTEGER,
                 page_id INTEGER,
                 frequency INTEGER,
+                positions TEXT, 
                 PRIMARY KEY (word_id, page_id),
                 FOREIGN KEY (word_id) REFERENCES words(word_id),
                 FOREIGN KEY (page_id) REFERENCES pages(page_id)
             );
-                                  
-            CREATE TABLE IF NOT EXISTS inverted_index_body (
-                word_id INTEGER,
-                page_frequency INTEGER,
-                PRIMARY KEY (word_id)
-                FOREIGN KEY (word_id) REFERENCES words(word_id)
-            );
-                                  
-            CREATE TABLE IF NOT EXISTS inverted_index_title (
-                word_id INTEGER,
-                page_frequency INTEGER,
-                PRIMARY KEY (word_id)
-                FOREIGN KEY (word_id) REFERENCES words(word_id)
-            );
+            
             
             CREATE TABLE IF NOT EXISTS parent_child_links (
                 parent_id INTEGER,
@@ -126,48 +115,85 @@ class Database:
     #     ''', (word_id, total_frequency))
     #     self.conn.commit()
 
-    def add_entry_body(self, title: str, url: str, words: List[str], last_modified: str, size: int):  
-        """Add words from the page body to forward_index_body."""
+    def add_entry_body(self, title: str, url: str, words: List[str], words_positions: List[int], last_modified: str, size: int):  
+        """Add words from the page body to inverted_index_body."""
         page_id = self._get_or_create_page_id(title, url, last_modified, size)
-        word_freq = {}
-        for word in words:      # Count the frequency of each word in the body of the page.
-            word_freq[word] = word_freq.get(word, 0) + 1
+        word_data = {}
+        for word, pos in zip(words, words_positions):      # Count the frequency of each word in the body of the page.
+            if word not in word_data:
+                word_data[word] = {
+                    'frequency': 0,
+                    'positions': []
+                }
+            word_data[word]['frequency'] += 1
+            word_data[word]['positions'].append(str(pos))
 
-        for word, freq in word_freq.items():    #Insert into the database.
+        for word, data in word_data.items():    #Insert into the database.
             word_id = self._get_or_create_word_id(word)
+            positions_str = ','.join(data['positions'])  # Convert positions list to comma-separated string
             self.cursor.execute('''
-                INSERT OR REPLACE INTO forward_index_body (word_id, page_id, frequency)
-                VALUES (?, ?, COALESCE((SELECT frequency FROM forward_index_body WHERE word_id=? AND page_id=?), 0) + ?)
-            ''', (word_id, page_id, word_id, page_id, freq))
-            # print("ok")
-            # self._update_inverted_index_body(word_id)  # Update inverted index
-            self.cursor.execute('''
-                INSERT OR REPLACE INTO inverted_index_body (word_id, page_frequency)
-                VALUES (?, COALESCE((SELECT page_frequency FROM inverted_index_body WHERE word_id=?), 0) + ?)
-            ''', (word_id, word_id, freq))
+                INSERT OR REPLACE INTO inverted_index_body 
+                (word_id, page_id, frequency, positions)
+                VALUES (?, ?, 
+                    COALESCE((SELECT frequency FROM inverted_index_body WHERE word_id=? AND page_id=?), 0) + ?,
+                    COALESCE((SELECT positions FROM inverted_index_body WHERE word_id=? AND page_id=?), '') || ?
+                )
+            ''', 
+                (word_id, page_id, 
+                word_id, page_id, data['frequency'],
+                word_id, page_id, positions_str)
+            )
+            #COALESCE((SELECT positions FROM inverted_index_body WHERE word_id=? AND page_id=?), '') || ?
+            # ',' + positions_str if data['frequency'] > 1 else positions_str
+
+            # # print("ok")
+            # # self._update_inverted_index_body(word_id)  # Update inverted index
+            # self.cursor.execute('''
+            #     INSERT OR REPLACE INTO inverted_index_body (word_id, page_frequency)
+            #     VALUES (?, COALESCE((SELECT page_frequency FROM inverted_index_body WHERE word_id=?), 0) + ?)
+            # ''', (word_id, word_id, freq))
         self.conn.commit()
 
-    def add_entry_title(self, title: str,url: str, words: List[str], last_modified: str, size: int):
-        """Add words from the page title to forward_index_title."""
+    def add_entry_title(self, title: str,url: str, words: List[str], words_positions: List[int], last_modified: str, size: int):
+        """Add words from the page title to inverted_index_title."""
 
         page_id = self._get_or_create_page_id(title, url, last_modified, size)
-        word_freq = {}
-        for word in words:      # Count the frequency of each word in the title of the page.
-            word_freq[word] = word_freq.get(word, 0) + 1
+        word_data = {}
+        for word, pos in zip(words, words_positions):      # Count the frequency of each word in the body of the page.
+            if word not in word_data:
+                word_data[word] = {
+                    'frequency': 0,
+                    'positions': []
+                }
+            word_data[word]['frequency'] += 1
+            word_data[word]['positions'].append(str(pos))
 
-        for word, freq in word_freq.items():        #Insert into the database.
+        for word, data in word_data.items():    #Insert into the database.
             word_id = self._get_or_create_word_id(word)
+            positions_str = ','.join(data['positions'])  # Convert positions list to comma-separated string
             self.cursor.execute('''
-                INSERT OR REPLACE INTO forward_index_title (word_id, page_id, frequency)
-                VALUES (?, ?, COALESCE((SELECT frequency FROM forward_index_title WHERE word_id=? AND page_id=?), 0) + ?)
-            ''', (word_id, page_id, word_id, page_id, freq))
-            # self._update_inverted_index_title(word_id)  # Update inverted index
-            self.cursor.execute('''
-                INSERT OR REPLACE INTO inverted_index_title (word_id, page_frequency)
-                VALUES (?, COALESCE((SELECT page_frequency FROM inverted_index_title WHERE word_id=?), 0) + ?)
-            ''', (word_id, word_id, freq))
+                INSERT OR REPLACE INTO inverted_index_title 
+                (word_id, page_id, frequency, positions)
+                VALUES (?, ?, 
+                    COALESCE((SELECT frequency FROM inverted_index_title WHERE word_id=? AND page_id=?), 0) + ?,
+                    COALESCE((SELECT positions FROM inverted_index_title WHERE word_id=? AND page_id=?), '') || ?
+                )
+            ''', (
+                word_id, 
+                page_id, 
+                word_id, page_id, data['frequency'],
+                word_id, page_id, positions_str
+            ))
+            # # self._update_inverted_index_title(word_id)  # Update inverted index
+            # self.cursor.execute('''
+            #     INSERT OR REPLACE INTO inverted_index_title (word_id, page_frequency)
+            #     VALUES (?, COALESCE((SELECT page_frequency FROM inverted_index_title WHERE word_id=?), 0) + ?)
+            # ''', (word_id, word_id, freq))
 
         self.conn.commit()
+    
+
+
 
     def add_parent_child_link(self, title: str, parent_url: str, child_url: str):
         """Add parent-child relationship."""
