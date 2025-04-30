@@ -187,7 +187,7 @@ class Database:
             ''', (word_id, word_id, 1))
         
         self.cursor.execute('''
-            INSERT OR REPLACE INTO forward_index_body_page2maptf (page_id, maxtf)
+            INSERT OR REPLACE INTO forward_index_body_page2maxtf (page_id, maxtf)
             VALUES (?, ?)
         ''', (page_id, max_tf))
 
@@ -232,7 +232,7 @@ class Database:
             ''', (word_id, word_id, 1))
 
         self.cursor.execute('''
-            INSERT OR REPLACE INTO forward_index_title_page2maptf (page_id, maxtf)
+            INSERT OR REPLACE INTO forward_index_title_page2maxtf (page_id, maxtf)
             VALUES (?, ?)
         ''', (page_id, max_tf))
 
