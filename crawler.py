@@ -312,7 +312,7 @@ class Crawler:
         self.index.cursor.execute('''
             SELECT df FROM inverted_index_body_word2df
             WHERE word_id=?
-        ''', (word_id))
+        ''', (word_id, ))
         result = self.index.cursor.fetchone()
         if not result:
             return 0
@@ -333,7 +333,7 @@ class Crawler:
             self.index.cursor.execute('''
                 SELECT maxtf FROM forward_index_body_page2maxtf
                 WHERE page_id=?
-            ''', (page_id))
+            ''', (page_id, ))
             result = self.index.cursor.fetchone()
             if not result:
                 return 0
@@ -408,7 +408,7 @@ class Crawler:
         self.index.cursor.execute('''
             SELECT df FROM inverted_index_title_word2df
             WHERE word_id=?
-        ''', (word_id))
+        ''', (word_id, ))
         result = self.index.cursor.fetchone()
         if not result:
             return 0
@@ -429,7 +429,7 @@ class Crawler:
             self.index.cursor.execute('''
                 SELECT maxtf FROM forward_index_title_page2maxtf
                 WHERE page_id=?
-            ''', (page_id))
+            ''', (page_id, ))
             result = self.index.cursor.fetchone()
             if not result:
                 return 0
