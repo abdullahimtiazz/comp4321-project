@@ -247,16 +247,17 @@ class Crawler:
     #     row = self.index.cursor.fetchone()
     #     return row[0] if row else 0
 
-    def calculate_body_tf(self, url: str, word: str) -> float:
+    def calculate_body_tf(self, url: str, word: str):
         """
+        Input: word (Needs to be stemmed in advance)
         Calculate term frequency (TF) of a word in a document's body.
-        Returns TF (frequency of the word in this document / max frequency in document)
+        Returns TF (how many times does this word appear in a certain document's body.)
         """
         # Get page_id and word_id
         self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
         page_row = self.index.cursor.fetchone()
         if not page_row:
-            return (0.0,0.0) # change back to 0.0 after we don't need to use the true frequency to check
+            return 0 
         page_id = page_row[0]
         
         word_id = self.index._get_or_create_word_id(word)
@@ -268,18 +269,11 @@ class Crawler:
         ''', (word_id, page_id))
         result = self.index.cursor.fetchone()
         if not result:
-            return (0.0,0.0) # change back to 0.0
+            return 0
         word_freq = result[0]
         
-        # Get max frequency in this document
-        self.index.cursor.execute('''
-            SELECT MAX(frequency) FROM inverted_index_body 
-            WHERE page_id=?
-        ''', (page_id,))
-        max_freq = self.index.cursor.fetchone()[0] or 1
-        
-        # Calculate normalized TF
-        return word_freq, word_freq / max_freq #result is the frequency where page_id=page_id, word_id where word_id, remove it after check
+        # Return TF
+        return word_freq 
 
     def get_body_positions(self, url: str, word: str) -> List[int]:
         """
@@ -316,22 +310,51 @@ class Crawler:
         word_id = self.index._get_or_create_word_id(word)
         
         self.index.cursor.execute('''
-            SELECT COUNT(DISTINCT page_id) FROM inverted_index_body 
+            SELECT df FROM inverted_index_body_word2df
             WHERE word_id=?
-        ''', (word_id,))
+        ''', (word_id))
         result = self.index.cursor.fetchone()
-        return result[0] if result else 0
+        if not result:
+            return 0
+        word_df = result[0]
+
+        return word_df
     
+    def calculate_body_maxtf(self, url: str):
+        """
+        Calculate a document's max term frequency (max_tf) 
+        Returns the max count of words in a document
+        """
+        page_id = None
+        self.index.cursor.execute('SELECT page_id FROM pages WHERE url = ?', (url,)) #Get the page_id of the url
+        page_row = self.index.cursor.fetchone()
+        if page_row:     # If the page is already in the table, get the page_id
+            page_id = page_row[0]
+            self.index.cursor.execute('''
+                SELECT maxtf FROM forward_index_body_page2maxtf
+                WHERE page_id=?
+            ''', (page_id))
+            result = self.index.cursor.fetchone()
+            if not result:
+                return 0
+            else:
+                maxtf = result[0]
+                return maxtf
+
+        else:
+            return 0 # This url doesn't exist, the maxtf of it is 0 
+
+
     def calculate_title_tf(self, url: str, word: str) -> float:
         """
         Calculate term frequency (TF) of a word in a document's title.
-        Returns TF (frequency of the word in this title / max frequency in title)
+        Returns TF (how many times does this word appear in a certain document's title.)
         """
         # Get page_id and word_id
         self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
         page_row = self.index.cursor.fetchone()
         if not page_row:
-            return (0.0,0.0) # change back to 0.0
+            return 0
         page_id = page_row[0]
         
         word_id = self.index._get_or_create_word_id(word)
@@ -343,18 +366,10 @@ class Crawler:
         ''', (word_id, page_id))
         result = self.index.cursor.fetchone()
         if not result:
-            return (0.0, 0.0) #change back to 0.0
+            return 0
         word_freq = result[0]
         
-        # Get max frequency in this title
-        self.index.cursor.execute('''
-            SELECT MAX(frequency) FROM inverted_index_title 
-            WHERE page_id=?
-        ''', (page_id,))
-        max_freq = self.index.cursor.fetchone()[0] or 1
-        
-        # Calculate normalized TF
-        return word_freq, word_freq / max_freq
+        return word_freq
     
     def get_title_positions(self, url: str, word: str) -> List[int]:
         """
@@ -391,9 +406,36 @@ class Crawler:
         word_id = self.index._get_or_create_word_id(word)
         
         self.index.cursor.execute('''
-            SELECT COUNT(DISTINCT page_id) FROM inverted_index_title 
+            SELECT df FROM inverted_index_title_word2df
             WHERE word_id=?
-        ''', (word_id,))
+        ''', (word_id))
         result = self.index.cursor.fetchone()
-        return result[0] if result else 0
+        if not result:
+            return 0
+        word_df = result[0]
 
+        return word_df
+
+    def calculate_title_maxtf(self, url: str):
+        """
+        Calculate a document's max term frequency (max_tf) in title
+        Returns the max count of words in a document's title
+        """
+        page_id = None
+        self.index.cursor.execute('SELECT page_id FROM pages WHERE url = ?', (url,)) #Get the page_id of the url
+        page_row = self.index.cursor.fetchone()
+        if page_row:     # If the page is already in the table, get the page_id
+            page_id = page_row[0]
+            self.index.cursor.execute('''
+                SELECT maxtf FROM forward_index_title_page2maxtf
+                WHERE page_id=?
+            ''', (page_id))
+            result = self.index.cursor.fetchone()
+            if not result:
+                return 0
+            else:
+                maxtf = result[0]
+                return maxtf
+
+        else:
+            return 0 # This url doesn't exist, the maxtf of it is 0
