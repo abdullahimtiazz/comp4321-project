@@ -87,11 +87,11 @@ def search_engine(crawler, query, top_k=50):
         max_tf = tf
         query_vector[term] = (tf / max_tf) * idf  # always idf for query
 
-    # 3. For each doc, build document vector (weight per term in query)
+    # 3. For each doc, build document vector (weight per term in the document)
     doc_vectors = {}
     for doc in candidate_docs:
         vec = {}
-        # Calculate max_tf for the document based on all terms in the document
+        # Retrieve all terms in the document
         all_terms = crawler.get_all_terms_in_doc(doc)  # Assume this method retrieves all terms in the document
         max_tf = max(
             crawler.calculate_body_tf(doc, term)[0] + crawler.calculate_title_tf(doc, term)[0]
@@ -99,18 +99,12 @@ def search_engine(crawler, query, top_k=50):
         )
         max_tf = max(max_tf, 1)  # Ensure max_tf is at least 1 to avoid division by zero
 
-        for term in query_counts:
-            if ' ' in term:
-                # phrase: treat as a "term", tf = 1 if found, else 0
-                phrase_words = term.split()
-                tf = 1 if doc in get_docs_for_phrase(crawler, phrase_words) else 0
-                df = max(1, sum(1 for d in candidate_docs if d in get_docs_for_phrase(crawler, phrase_words)))
-            else:
-                tf_body, _ = crawler.calculate_body_tf(doc, term)
-                tf_title, _ = crawler.calculate_title_tf(doc, term)
-                tf = tf_body + tf_title
-                df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
-                if df == 0: df = 1
+        for term in all_terms:  # Use all terms in the document, not just query terms
+            tf_body, _ = crawler.calculate_body_tf(doc, term)
+            tf_title, _ = crawler.calculate_title_tf(doc, term)
+            tf = tf_body + tf_title
+            df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
+            if df == 0: df = 1
             idf = math.log(N / df)
             vec[term] = (tf * idf) / max_tf if max_tf > 0 else 0.0
         doc_vectors[doc] = vec
@@ -118,17 +112,9 @@ def search_engine(crawler, query, top_k=50):
     # 4. Cosine similarity
     results = []
     for doc, vec in doc_vectors.items():
-        dot = sum(vec[t] * query_vector[t] for t in query_vector)
+        dot = sum(vec.get(t, 0) * query_vector.get(t, 0) for t in query_vector)  # Use .get to handle missing terms
         doc_norm = math.sqrt(sum(v**2 for v in vec.values()))
         query_norm = math.sqrt(sum(v**2 for v in query_vector.values()))
-        
-        # Debugging: Print intermediate values
-        print(f"Doc: {doc}")
-        print(f"Doc Vector: {vec}")
-        print(f"Query Vector: {query_vector}")
-        print(f"Dot Product: {dot}")
-        print(f"Doc Norm: {doc_norm}, Query Norm: {query_norm}")
-        
         score = dot / (doc_norm * query_norm) if doc_norm and query_norm else 0.0
         results.append((doc, score))
 
