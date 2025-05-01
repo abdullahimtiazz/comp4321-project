@@ -1,116 +1,174 @@
-# main.py
-
-import sys
-import re
 import math
-import requests
+import re
+from collections import Counter, defaultdict
 from crawler import Crawler
 from nltk.stem import PorterStemmer
 
-def extract_phrases_and_terms(query):
+def parse_query(query):
     """
-    Return (phrase_lists, term_list)
-    - phrase_lists: list of lists of words for each quoted phrase
-    - term_list: list of standalone words
+    Returns (terms, phrases)
+    terms: list of single stemmed words
+    phrases: list of list of stemmed words (each phrase)
     """
-    phrase_texts = re.findall(r'"([^"]+)"', query)
-    remainder = re.sub(r'"[^"]+"', '', query)
-    terms = re.findall(r'\b\w+\b', remainder.lower())
-    phrases = [ph.lower().split() for ph in phrase_texts]
-    return phrases, terms
+    stemmer = PorterStemmer()
+    # Extract phrases in quotes
+    phrases = re.findall(r'"([^"]+)"', query)
+    phrase_terms = [ [stemmer.stem(w.lower()) for w in re.findall(r"\b[\w']+\b", p)] for p in phrases ]
+    # Remove phrases from query
+    query_wo_phrases = re.sub(r'"[^"]+"', '', query)
+    # Remaining single terms
+    terms = [stemmer.stem(w.lower()) for w in re.findall(r"\b[\w']+\b", query_wo_phrases)]
+    return terms, phrase_terms
 
-def phrase_in_doc(phrase_terms, crawler, url):
+def get_docs_for_term(crawler, word):
+    """Return set of URLs with this word in body or title."""
+    # Use inverted index for body and title
+    body_docs = crawler.index.get_docs_containing_word_body(word)
+    title_docs = crawler.index.get_docs_containing_word_title(word)
+    return set(body_docs) | set(title_docs)
+
+def get_docs_for_phrase(crawler, phrase):
     """
-    Check if phrase_terms appear consecutively (in title or body) for a URL.
+    Return set of URLs where the phrase appears consecutively in body.
+    phrase: list of stemmed words
     """
-    positions = {}
-    for term in phrase_terms:
-        positions[term] = (
-            crawler.get_title_positions(url, term) +
-            crawler.get_body_positions(url, term)
+    docs = get_docs_for_term(crawler, phrase[0])
+    result = set()
+    for url in docs:
+        positions = set(crawler.get_body_positions(url, phrase[0]))
+        if not positions:
+            continue
+        for pos in positions:
+            found = True
+            for offset, word in enumerate(phrase[1:], 1):
+                next_positions = crawler.get_body_positions(url, word)
+                if (pos + offset) not in next_positions:
+                    found = False
+                    break
+            if found:
+                result.add(url)
+                break
+    return result
+
+def search_engine(crawler, query, top_k=50):
+    terms, phrases = parse_query(query)
+    N = crawler.index.get_total_doc_count()
+    if N == 0:
+        print("No documents in DB. Did you crawl yet?")
+        return []
+
+    # 1. Get candidate docs for each term/phrase
+    doc_sets = []
+    for t in terms:
+        doc_sets.append(get_docs_for_term(crawler, t))
+    for phrase in phrases:
+        doc_sets.append(get_docs_for_phrase(crawler, phrase))
+    if not doc_sets:
+        print("No query terms found.")
+        return []
+    candidate_docs = set.union(*doc_sets) if doc_sets else set()
+
+    # 2. Build query vector (weight per term)
+    query_counts = Counter(terms)
+    for phrase in phrases:
+        query_counts[' '.join(phrase)] += 1
+
+    query_vector = {}
+    for term in query_counts:
+        if ' ' in term:
+            # phrase: get df
+            phrase_words = term.split()
+            df = max(1, sum(1 for d in candidate_docs if d in get_docs_for_phrase(crawler, phrase_words)))
+        else:
+            df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
+            if df == 0: df = 1
+        idf = math.log(N / df)
+        tf = query_counts[term]
+        max_tf = tf
+        query_vector[term] = (tf / max_tf) * idf  # always idf for query
+
+    # 3. For each doc, build document vector (weight per term in query)
+    doc_vectors = {}
+    for doc in candidate_docs:
+        vec = {}
+        # Calculate max_tf for the document based on all terms in the document
+        all_terms = crawler.get_all_terms_in_doc(doc)  # Assume this method retrieves all terms in the document
+        max_tf = max(
+            crawler.calculate_body_tf(doc, term)[0] + crawler.calculate_title_tf(doc, term)[0]
+            for term in all_terms
         )
-    base = positions.get(phrase_terms[0], [])
-    for p in base:
-        if all((p + i) in positions.get(t, []) for i, t in enumerate(phrase_terms[1:], 1)):
-            return True
-    return False
+        max_tf = max(max_tf, 1)  # Ensure max_tf is at least 1 to avoid division by zero
+
+        for term in query_counts:
+            if ' ' in term:
+                # phrase: treat as a "term", tf = 1 if found, else 0
+                phrase_words = term.split()
+                tf = 1 if doc in get_docs_for_phrase(crawler, phrase_words) else 0
+                df = max(1, sum(1 for d in candidate_docs if d in get_docs_for_phrase(crawler, phrase_words)))
+            else:
+                tf_body, _ = crawler.calculate_body_tf(doc, term)
+                tf_title, _ = crawler.calculate_title_tf(doc, term)
+                tf = tf_body + tf_title
+                df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
+                if df == 0: df = 1
+            idf = math.log(N / df)
+            vec[term] = (tf * idf) / max_tf if max_tf > 0 else 0.0
+        doc_vectors[doc] = vec
+
+    # 4. Cosine similarity
+    results = []
+    for doc, vec in doc_vectors.items():
+        dot = sum(vec[t] * query_vector[t] for t in query_vector)
+        doc_norm = math.sqrt(sum(v**2 for v in vec.values()))
+        query_norm = math.sqrt(sum(v**2 for v in query_vector.values()))
+        
+        # Debugging: Print intermediate values
+        print(f"Doc: {doc}")
+        print(f"Doc Vector: {vec}")
+        print(f"Query Vector: {query_vector}")
+        print(f"Dot Product: {dot}")
+        print(f"Doc Norm: {doc_norm}, Query Norm: {query_norm}")
+        
+        score = dot / (doc_norm * query_norm) if doc_norm and query_norm else 0.0
+        results.append((doc, score))
+
+    # 5. Top 50
+    results.sort(key=lambda x: x[1], reverse=True)
+    return results[:top_k]
+
+def print_results(crawler, results):
+    if not results:
+        print("No results found.")
+        return
+    print("\nTop Results:")
+    for rank, (url, score) in enumerate(results, 1):
+        # Fetch title from DB
+        crawler.index.cursor.execute("SELECT title FROM pages WHERE url=?", (url,))
+        row = crawler.index.cursor.fetchone()
+        title = row[0] if row else "No Title"
+        print(f"{rank}. [{title.strip() if title else 'No Title'}]")
+        print(f"   URL: {url}")
+        print(f"   Score: {score:.4f}")
+        print()
 
 def main():
-    if len(sys.argv) != 4:
-        print("Usage: python main.py <start_url> <max_pages> \"<query>\"")
-        sys.exit(1)
+    # 1. Start crawler (if you want to recrawl, uncomment next lines)
+    # start_url = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm"
+    # crawler = Crawler(start_url)
+    # crawler.crawl()
+    # crawler.generate_spider_result()
 
-    start_url = sys.argv[1]
-    max_pages = int(sys.argv[2])
-    query     = sys.argv[3]
+    # Or, just connect to existing DB:
+    start_url = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm"
+    crawler = Crawler(start_url)
 
-    # 1. Crawl & index
-    crawler = Crawler(start_url, max_pages)
-    print(f"Crawling up to {max_pages} pages from {start_url}…")
-    crawler.crawl()
-    crawler.generate_spider_result()
-    print("Crawling & indexing complete.\n")
-
-    # 2. Load all indexed URLs
-    cursor = crawler.index.cursor
-    cursor.execute("SELECT url FROM pages")
-    rows = cursor.fetchall()
-    urls = [r[0] for r in rows]
-    N = len(urls)
-    if N == 0:
-        print("No pages indexed—exiting.")
-        crawler.index.close()
-        return
-
-    # 3. Parse and stem query
-    phrase_texts, term_texts = extract_phrases_and_terms(query)
-    stemmer = PorterStemmer()
-    stemmed_terms = [stemmer.stem(w) for w in term_texts]
-    stemmed_phrases = [[stemmer.stem(w) for w in ph] for ph in phrase_texts]
-    all_terms = stemmed_terms + [w for ph in stemmed_phrases for w in ph]
-
-    # 4. Build query vector (tf × idf / max(tf))
-    q_tf = {}
-    for t in all_terms:
-        q_tf[t] = q_tf.get(t, 0) + 1
-    max_q_tf = max(q_tf.values(), default=1)
-    q_vec = {}
-    for t, freq in q_tf.items():
-        df = max(crawler.calculate_body_df(t), crawler.calculate_title_df(t), 1)
-        idf = math.log(N / df)
-        q_vec[t] = (freq / max_q_tf) * idf
-
-    # 5. Score each document
-    scores = {}
-    for url in urls:
-        # phrase check
-        if any(not phrase_in_doc(ph, crawler, url) for ph in stemmed_phrases):
-            continue
-
-        # build document vector
-        doc_vec = {}
-        for t in q_vec:
-            _, tf_b = crawler.calculate_body_tf(url, t)
-            _, tf_t = crawler.calculate_title_tf(url, t)
-            df = max(crawler.calculate_body_df(t), crawler.calculate_title_df(t), 1)
-            idf = math.log(N / df)
-            # boost title hits by 2×
-            doc_vec[t] = (tf_b * idf) + (tf_t * idf * 2.0)
-
-        # cosine similarity
-        num = sum(q_vec[t] * doc_vec.get(t, 0) for t in q_vec)
-        norm_q = math.sqrt(sum(v*v for v in q_vec.values()))
-        norm_d = math.sqrt(sum(v*v for v in doc_vec.values()))
-        if norm_q > 0 and norm_d > 0:
-            scores[url] = num / (norm_q * norm_d)
-
-    # 6. Output top 50
-    ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)[:50]
-    print(f"\nTop {len(ranked)} results for query {query!r}:\n")
-    for i, (url, sc) in enumerate(ranked, 1):
-        print(f"{i:2d}. {url} (score={sc:.4f})")
-
-    crawler.index.close()
+    while True:
+        print("\n=== SEARCH ENGINE ===")
+        query = input('Enter your query (or type "exit" to quit): ').strip()
+        if query.lower() == "exit":
+            break
+        results = search_engine(crawler, query)
+        print_results(crawler, results)
 
 if __name__ == "__main__":
     main()

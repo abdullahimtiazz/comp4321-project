@@ -397,3 +397,34 @@ class Crawler:
         result = self.index.cursor.fetchone()
         return result[0] if result else 0
 
+    def get_all_terms_in_doc(self, url: str) -> List[str]:
+        """
+        Retrieve all terms (stemmed) from the body and title of a document.
+        Returns a list of unique terms.
+        """
+        # Get page_id
+        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
+        page_row = self.index.cursor.fetchone()
+        if not page_row:
+            return []
+        page_id = page_row[0]
+
+        # Retrieve terms from the body
+        self.index.cursor.execute('''
+            SELECT w.word FROM words w
+            JOIN inverted_index_body ib ON w.word_id = ib.word_id
+            WHERE ib.page_id = ?
+        ''', (page_id,))
+        body_terms = [row[0] for row in self.index.cursor.fetchall()]
+
+        # Retrieve terms from the title
+        self.index.cursor.execute('''
+            SELECT w.word FROM words w
+            JOIN inverted_index_title it ON w.word_id = it.word_id
+            WHERE it.page_id = ?
+        ''', (page_id,))
+        title_terms = [row[0] for row in self.index.cursor.fetchall()]
+
+        # Combine and return unique terms
+        return list(set(body_terms + title_terms))
+
