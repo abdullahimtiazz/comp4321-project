@@ -115,7 +115,8 @@ def search_engine(crawler, query, top_k=50):
         dot = sum(vec.get(t, 0) * query_vector.get(t, 0) for t in query_vector)  # Use .get to handle missing terms
         doc_norm = math.sqrt(sum(v**2 for v in vec.values()))
         query_norm = math.sqrt(sum(v**2 for v in query_vector.values()))
-        score = dot / (doc_norm * query_norm) if doc_norm and query_norm else 0.0
+        title_maxtf = crawler.calculate_title_maxtf(doc)  # Use calculate_title_maxtf()
+        score = (dot / (doc_norm * query_norm) if doc_norm and query_norm else 0.0) * (1 + title_maxtf)
         results.append((doc, score))
 
     # 5. Top 50

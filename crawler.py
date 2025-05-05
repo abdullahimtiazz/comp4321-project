@@ -441,3 +441,26 @@ class Crawler:
         # Combine and return unique terms
         return list(set(body_terms + title_terms))
 
+    def calculate_title_maxtf(self, url: str):
+        """
+        Calculate a document's max term frequency (max_tf) in title
+        Returns the max count of words in a document's title
+        """
+        page_id = None
+        self.index.cursor.execute('SELECT page_id FROM pages WHERE url = ?', (url,)) #Get the page_id of the url
+        page_row = self.index.cursor.fetchone()
+        if page_row:     # If the page is already in the table, get the page_id
+            page_id = page_row[0]
+            self.index.cursor.execute('''
+                SELECT maxtf FROM forward_index_title_page2maxtf
+                WHERE page_id=?
+            ''', (page_id, ))
+            result = self.index.cursor.fetchone()
+            if not result:
+                return 0
+            else:
+                maxtf = result[0]
+                return maxtf
+
+        else:
+            return 0 # This url doesn't exist, the maxtf of it is 0
