@@ -1,5 +1,13 @@
 from crawler import Crawler
-from .search import parse_query, search_engine, print_results    
+from search import parse_query, search_engine, print_results    
+
+def search_logic(query):
+    # Implement your search logic here
+    # This is a dummy implementation for demonstration
+    return [
+        {'title': f'Result {i}', 'url': f'http://example.com/{i}', 'snippet': f'This is a sample result {i} for query: {query}'}
+        for i in range(1, 51)  # Simulating 50 results
+    ]
 
 def main():
     # 1. Start crawler (if you want to recrawl, uncomment next lines)

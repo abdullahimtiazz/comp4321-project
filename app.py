@@ -1,4 +1,5 @@
 import flask as f
+from main import search_logic  # Import the search logic function from main.py
 
 app = f.Flask(__name__)
 
@@ -17,12 +18,8 @@ def search():
 
     results_per_page = 7  # Number of results per page
 
-    # TODO: Implement your search logic here
-    # This is a dummy result for demonstration
-    all_results = [
-        {'title': f'Result {i}', 'url': f'http://example.com/{i}', 'snippet': f'This is a sample result {i} for query: {query}'} 
-        for i in range(1, 51)  # Simulating 50 results
-    ]
+    # Call the search logic from main.py
+    all_results = search_logic(query)  # Fetch all results using the backend logic
 
     # Paginate results
     start = (page - 1) * results_per_page
