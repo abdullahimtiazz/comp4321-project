@@ -10,6 +10,8 @@
     --button-hover-bg-color: #2980b9;
     --result-bg-color: white;
     --result-shadow-color: rgba(0, 0, 0, 0.1);
+    --rank-badge-color: #FF4136;  /* Red for light mode */
+    --rank-badge-text: #000;
 }
 
 [data-theme="dark"] {
@@ -24,6 +26,8 @@
     --button-hover-bg-color: #16a085;
     --result-bg-color: #34495e;
     --result-shadow-color: rgba(0, 0, 0, 0.5);
+    --rank-badge-color: #FFD700;  /* Yellow for dark mode */
+    --rank-badge-text: #000;
 }
 
 .no-transition * {
@@ -116,10 +120,12 @@ body {
 }
 
 .result-item {
-    background: var(--result-bg-color);
+    position: relative;
     padding: 20px;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: var(--result-bg-color);
     box-shadow: 0 2px 6px var(--result-shadow-color);
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -127,6 +133,19 @@ body {
 .result-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 12px var(--result-shadow-color);
+}
+
+.rank-badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: var(--rank-badge-color);
+    color: var(--rank-badge-text);
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;  /* Smooth transition between themes */
 }
 
 .result-item h3 {
