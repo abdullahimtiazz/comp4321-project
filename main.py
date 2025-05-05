@@ -1,5 +1,5 @@
 from crawler import Crawler
-from .search import parse_query, search_engine, print_results    
+from search import parse_query, search_engine, print_results    
 
 def main():
     # 1. Start crawler (if you want to recrawl, uncomment next lines)

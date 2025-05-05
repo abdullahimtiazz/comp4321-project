@@ -20,6 +20,11 @@ class Crawler:
         self.stopwords = self._load_stopwords("stopwords.txt")
         self.upload_file = "spider_result.txt"
 
+    def close(self):
+        """Close the database connection"""
+        if hasattr(self, 'index'):
+            self.index.close()
+
     def _load_stopwords(self, path: str) -> set:
         """Load and stem stopwords from a file."""
 

@@ -234,7 +234,10 @@ class Database:
         return row[0] if row else 0
     
     def close(self):
-        """Close the database connection."""
-        self.conn.close()
+        """Close the database connection"""
+        if hasattr(self, 'cursor'):
+            self.cursor.close()
+        if hasattr(self, 'conn'):
+            self.conn.close()
 
 
