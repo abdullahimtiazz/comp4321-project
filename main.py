@@ -2,6 +2,7 @@ import math
 import re
 from collections import Counter, defaultdict
 from crawler import Crawler
+
 from nltk.stem import PorterStemmer
 
 def parse_query(query):
@@ -159,3 +160,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
