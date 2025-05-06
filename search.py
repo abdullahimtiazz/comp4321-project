@@ -94,14 +94,14 @@ def search_engine(crawler, query, top_k=50):
         # Retrieve all terms in the document
         all_terms = crawler.get_all_terms_in_doc(doc)  # Assume this method retrieves all terms in the document
         max_tf = max(
-            crawler.calculate_body_tf(doc, term)[0] + TITLE_WEIGHT * crawler.calculate_title_tf(doc, term)[0]
+            crawler.calculate_body_tf(doc, term) + TITLE_WEIGHT * crawler.calculate_title_tf(doc, term)
             for term in all_terms
         )
         max_tf = max(max_tf, 1)  # Ensure max_tf is at least 1 to avoid division by zero
 
         for term in all_terms:  # Use all terms in the document, not just query terms
-            tf_body, _ = crawler.calculate_body_tf(doc, term)
-            tf_title, _ = crawler.calculate_title_tf(doc, term)
+            tf_body = crawler.calculate_body_tf(doc, term)
+            tf_title = crawler.calculate_title_tf(doc, term)
             tf = tf_body + TITLE_WEIGHT * tf_title  # Apply title weight multiplier
             df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
             if df == 0: df = 1
