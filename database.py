@@ -53,6 +53,35 @@ class Database:
                 FOREIGN KEY (parent_id) REFERENCES pages(page_id),
                 FOREIGN KEY (child_id) REFERENCES pages(page_id)
             );
+            
+            CREATE TABLE IF NOT EXISTS inverted_index_body_word2df (
+                word_id INTEGER,
+                df INTEGER,
+                PRIMARY KEY (word_id)
+                FOREIGN KEY (word_id) REFERENCES words(word_id)
+            );
+                                  
+            CREATE TABLE IF NOT EXISTS inverted_index_title_word2df (
+                word_id INTEGER,
+                df INTEGER,
+                PRIMARY KEY (word_id)
+                FOREIGN KEY (word_id) REFERENCES words(word_id)
+            );
+            
+            CREATE TABLE IF NOT EXISTS forward_index_body_page2maxtf (
+                page_id INTEGER,
+                maxtf INTEGER,
+                PRIMARY KEY (page_id)
+                FOREIGN KEY (page_id) REFERENCES pages(page_id)
+            );
+                                  
+            CREATE TABLE IF NOT EXISTS forward_index_title_page2maxtf (
+                page_id INTEGER,
+                maxtf INTEGER,
+                PRIMARY KEY (page_id)
+                FOREIGN KEY (page_id) REFERENCES pages(page_id)
+            );
+                                  
         ''')
         self.conn.commit()
 
@@ -128,6 +157,7 @@ class Database:
             word_data[word]['frequency'] += 1
             word_data[word]['positions'].append(str(pos))
 
+        max_tf = 0
         for word, data in word_data.items():    #Insert into the database.
             word_id = self._get_or_create_word_id(word)
             positions_str = ','.join(data['positions'])  # Convert positions list to comma-separated string
@@ -143,15 +173,24 @@ class Database:
                 word_id, page_id, data['frequency'],
                 word_id, page_id, positions_str)
             )
+
+            max_tf = max(max_tf, data['frequency'])
+
             #COALESCE((SELECT positions FROM inverted_index_body WHERE word_id=? AND page_id=?), '') || ?
             # ',' + positions_str if data['frequency'] > 1 else positions_str
 
             # # print("ok")
             # # self._update_inverted_index_body(word_id)  # Update inverted index
-            # self.cursor.execute('''
-            #     INSERT OR REPLACE INTO inverted_index_body (word_id, page_frequency)
-            #     VALUES (?, COALESCE((SELECT page_frequency FROM inverted_index_body WHERE word_id=?), 0) + ?)
-            # ''', (word_id, word_id, freq))
+            self.cursor.execute('''
+                INSERT OR REPLACE INTO inverted_index_body_word2df (word_id, df)
+                VALUES (?, COALESCE((SELECT df FROM inverted_index_body_word2df WHERE word_id=?), 0) + ?)
+            ''', (word_id, word_id, 1))
+        
+        self.cursor.execute('''
+            INSERT OR REPLACE INTO forward_index_body_page2maxtf (page_id, maxtf)
+            VALUES (?, ?)
+        ''', (page_id, max_tf))
+
         self.conn.commit()
 
     def add_entry_title(self, title: str,url: str, words: List[str], words_positions: List[int], last_modified: str, size: int):
@@ -168,6 +207,7 @@ class Database:
             word_data[word]['frequency'] += 1
             word_data[word]['positions'].append(str(pos))
 
+        max_tf = 0
         for word, data in word_data.items():    #Insert into the database.
             word_id = self._get_or_create_word_id(word)
             positions_str = ','.join(data['positions'])  # Convert positions list to comma-separated string
@@ -184,11 +224,17 @@ class Database:
                 word_id, page_id, data['frequency'],
                 word_id, page_id, positions_str
             ))
+            max_tf = max(max_tf, data['frequency'])
             # # self._update_inverted_index_title(word_id)  # Update inverted index
-            # self.cursor.execute('''
-            #     INSERT OR REPLACE INTO inverted_index_title (word_id, page_frequency)
-            #     VALUES (?, COALESCE((SELECT page_frequency FROM inverted_index_title WHERE word_id=?), 0) + ?)
-            # ''', (word_id, word_id, freq))
+            self.cursor.execute('''
+                INSERT OR REPLACE INTO inverted_index_title_word2df (word_id, df)
+                VALUES (?, COALESCE((SELECT df FROM inverted_index_title_word2df WHERE word_id=?), 0) + ?)
+            ''', (word_id, word_id, 1))
+
+        self.cursor.execute('''
+            INSERT OR REPLACE INTO forward_index_title_page2maxtf (page_id, maxtf)
+            VALUES (?, ?)
+        ''', (page_id, max_tf))
 
         self.conn.commit()
     
