@@ -251,9 +251,39 @@ class Database:
             VALUES (?, ?)
         ''', (parent_id, child_id))
         self.conn.commit()
+    def get_docs_containing_word_body(self, word: str):
+        """Return list of URLs where 'word' appears in the body."""
+        self.cursor.execute("""
+            SELECT DISTINCT p.url
+            FROM inverted_index_body i
+            JOIN pages p ON i.page_id = p.page_id
+            JOIN words w ON i.word_id = w.word_id
+            WHERE w.word = ?
+        """, (word,))
+        return [row[0] for row in self.cursor.fetchall()]
 
+    def get_docs_containing_word_title(self, word: str):
+        """Return list of URLs where 'word' appears in the title."""
+        self.cursor.execute("""
+            SELECT DISTINCT p.url
+            FROM inverted_index_title i
+            JOIN pages p ON i.page_id = p.page_id
+            JOIN words w ON i.word_id = w.word_id
+            WHERE w.word = ?
+        """, (word,))
+        return [row[0] for row in self.cursor.fetchall()]
+
+    def get_total_doc_count(self):
+        """Return the total number of documents in the database."""
+        self.cursor.execute("SELECT COUNT(*) FROM pages")
+        row = self.cursor.fetchone()
+        return row[0] if row else 0
+    
     def close(self):
-        """Close the database connection."""
-        self.conn.close()
+        """Close the database connection"""
+        if hasattr(self, 'cursor'):
+            self.cursor.close()
+        if hasattr(self, 'conn'):
+            self.conn.close()
 
 

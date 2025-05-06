@@ -20,6 +20,11 @@ class Crawler:
         self.stopwords = self._load_stopwords("stopwords.txt")
         self.upload_file = "spider_result.txt"
 
+    def close(self):
+        """Close the database connection"""
+        if hasattr(self, 'index'):
+            self.index.close()
+
     def _load_stopwords(self, path: str) -> set:
         """Load and stem stopwords from a file."""
 
@@ -159,18 +164,19 @@ class Crawler:
                 f.write(f"Keywords: {keywords}\n")
 
                 # Parent links
-                self.index.cursor.execute('''
-                    SELECT p1.url 
-                    FROM parent_child_links pc
-                    JOIN pages p1 ON pc.parent_id = p1.page_id
-                    JOIN pages p2 ON pc.child_id = p2.page_id
-                    WHERE p2.url = ?
-                ''', (url,))
-                parents = [row[0] for row in self.index.cursor.fetchall()]
+                parents = self._get_parent_links(url)
                 f.write(f"Parent Links: {', '.join(parents) if parents else 'None'}\n")
 
                 # Child links
-                self.index.cursor.execute('''
+                children  = self._get_child_links(url)
+                f.write(f"Child Links: {',\n'.join(children) if children else 'None'}\n")
+
+                # Add separator (hyphens) after each page except the last one
+                if idx < len(pages) - 1:
+                    f.write("\n----------------\n\n")
+
+    def _get_child_links(self, url: str) -> List[str]:
+        self.index.cursor.execute('''
                     SELECT p2.url 
                     FROM parent_child_links pc
                     JOIN pages p1 ON pc.parent_id = p1.page_id
@@ -178,12 +184,19 @@ class Crawler:
                     WHERE p1.url = ?
                     LIMIT 10
                 ''', (url,))
-                children = [row[0] for row in self.index.cursor.fetchall()]
-                f.write(f"Child Links: {',\n'.join(children) if children else 'None'}\n")
-
-                # Add separator (hyphens) after each page except the last one
-                if idx < len(pages) - 1:
-                    f.write("\n----------------\n\n")
+        children = [row[0] for row in self.index.cursor.fetchall()]
+        return children if children else []
+    
+    def _get_parent_links(self, url: str) -> List[str]:
+        self.index.cursor.execute('''
+                    SELECT p1.url 
+                    FROM parent_child_links pc
+                    JOIN pages p1 ON pc.parent_id = p1.page_id
+                    JOIN pages p2 ON pc.child_id = p2.page_id
+                    WHERE p2.url = ?
+                ''', (url,))
+        parents = [row[0] for row in self.index.cursor.fetchall()]
+        return parents if parents else []
 
     def _get_top_keywords(self, url: str) -> str:
         """Get top 5 stemmed keywords (excluding stopwords) for a page."""
@@ -200,7 +213,7 @@ class Crawler:
             WHERE w.word NOT IN ({})
             ORDER BY total DESC
             LIMIT 5
-        '''.format(','.join(['?'] * len(self.stopwords))), 
+        '''.format(', '.join(['?'] * len(self.stopwords))), 
         (url, url, *self.stopwords))
         
         keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
