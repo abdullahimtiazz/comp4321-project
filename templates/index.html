@@ -55,6 +55,130 @@
             color: #ff6b6b;
             border-color: #2d2d2d;
         }
+
+        .history-list {
+            display: none;
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            right: 0;
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 1000;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .history-item:before {
+            content: '🕒';
+            font-size: 0.9em;
+            opacity: 0.6;
+        }
+
+        .history-item:hover {
+            background-color: var(--hover-color);
+        }
+
+        html[data-theme='dark'] .history-list {
+            background: #1a1a1a;
+            border-color: #2d2d2d;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        html[data-theme='dark'] .history-item:hover {
+            background-color: #2d2d2d;
+        }
+
+        .history-note {
+            padding: 8px 15px;
+            font-size: 0.8em;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        html[data-theme='dark'] .history-note {
+            color: #999;
+            border-top-color: #2d2d2d;
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .search-form {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            transform: none;
+            background: var(--background-color);
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 1000;
+            border: 1px solid var(--border-color);
+            max-width: 450px;
+            width: auto;
+            visibility: hidden; /* Change from opacity: 0 */
+            opacity: 0;
+            transition: visibility 0.3s, opacity 0.3s ease;
+        }
+
+        .cookie-consent.show {
+            visibility: visible; /* Add visibility */
+            opacity: 1;
+        }
+
+        .cookie-consent p {
+            margin: 0;
+            font-size: 1em;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        .cookie-consent button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background: #0066cc;
+            color: white;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 0.95em;
+        }
+
+        .cookie-consent button:hover {
+            background: #0052a3;
+        }
+
+        html[data-theme='dark'] .cookie-consent {
+            background: #1a1a1a;
+            border-color: #2d2d2d;
+        }
+
+        html[data-theme='dark'] .cookie-consent button {
+            background: #66b3ff;
+        }
+
+        html[data-theme='dark'] .cookie-consent button:hover {
+            background: #99ccff;
+        }
     </style>
     <script>
         // Set theme immediately on page load to prevent flickering
@@ -63,6 +187,52 @@
             document.documentElement.setAttribute('data-theme', currentTheme);
             document.documentElement.classList.add('no-transition'); // Disable transitions on load
         })();
+
+        // Add this function to handle cookies
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return "";
+        }
+
+        function saveQuery(query) {
+            if (!query) return;
+            let history = getCookie('queryHistory');
+            let queries = history ? JSON.parse(history) : [];
+            // Remove duplicate if exists
+            queries = queries.filter(q => q !== query);
+            // Add new query at the beginning
+            queries.unshift(query);
+            // Keep only last 5 queries
+            queries = queries.slice(0, 5);
+            setCookie('queryHistory', JSON.stringify(queries), 30);
+        }
+
+        function selectHistory(query) {
+            const searchInput = document.querySelector('input[name="query"]');
+            const currentValue = searchInput.value.trim();
+            // Add the selected query with a space separator if there's existing text
+            searchInput.value = currentValue ? `${currentValue} ${query}` : query;
+            searchInput.focus();
+            event.stopPropagation();
+        }
+
+        function acceptCookies() {
+            setCookie('cookieConsent', 'accepted', 365);
+            const consentPopup = document.querySelector('.cookie-consent');
+            consentPopup.style.opacity = '0';
+            setTimeout(() => {
+                consentPopup.style.visibility = 'hidden';
+            }, 300);
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             const themeSwitch = document.getElementById('theme-switch');
@@ -80,6 +250,60 @@
             setTimeout(() => {
                 document.documentElement.classList.remove('no-transition');
             }, 0);
+
+            const searchInput = document.querySelector('input[name="query"]');
+            const historyList = document.createElement('div');
+            historyList.className = 'history-list';
+            searchInput.parentNode.insertBefore(historyList, searchInput.nextSibling);
+
+            function showHistory() {
+                const history = getCookie('queryHistory');
+                if (history) {
+                    const queries = JSON.parse(history);
+                    if (queries && queries.length > 0) {
+                        historyList.innerHTML = `
+                            ${queries.map(q => 
+                                `<div class="history-item" onclick="selectHistory('${q}')">${q}</div>`
+                            ).join('')}
+                            <div class="history-note">Click on a query from history to add it to your current query!</div>
+                        `;
+                        historyList.style.display = 'block';
+                    } else {
+                        historyList.style.display = 'none';
+                    }
+                } else {
+                    historyList.style.display = 'none';
+                }
+            }
+
+            searchInput.addEventListener('focus', showHistory);
+
+            document.addEventListener('click', (e) => {
+                const isClickInside = searchInput.contains(e.target) || historyList.contains(e.target);
+                if (!isClickInside) {
+                    historyList.style.display = 'none';
+                }
+            });
+
+            document.querySelector('.search-form').addEventListener('submit', (e) => {
+                const query = searchInput.value.trim();
+                if (query) {
+                    saveQuery(query);
+                }
+            });
+
+            // Show cookie consent if not already accepted
+            const cookieConsent = getCookie('cookieConsent');
+            if (!cookieConsent) {
+                setTimeout(() => {
+                    const consentPopup = document.querySelector('.cookie-consent');
+                    consentPopup.style.visibility = 'visible';
+                    // Small delay to ensure visibility is applied before opacity
+                    setTimeout(() => {
+                        consentPopup.classList.add('show');
+                    }, 10);
+                }, 1000);
+            }
         });
     </script>
 </head>
@@ -158,6 +382,10 @@
         <footer class="footer">
             <p>&copy; 2025 COMP4321 Search Engine. Built with ❤️ for HKUST by Tina Li, Abraham Nok, Abdullah Imtiaz :)</p>
         </footer>
+    </div>
+    <div class="cookie-consent">
+        <p>We use cookies to store your search history and improve your experience.</p>
+        <button onclick="acceptCookies()">Got it!</button>
     </div>
 </body>
 </html>
