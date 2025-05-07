@@ -78,5 +78,51 @@ def search():
                            page=page, 
                            total_pages=total_pages)
 
+@app.route('/similar', methods=['GET'])
+def get_similar_pages():
+    url = f.request.args.get('url', '')
+    if not url:
+        f.flash('No URL provided for finding similar pages.', 'error')
+        return f.redirect(f.url_for('home'))
+
+    # Create a new crawler instance
+    crawler = Crawler(START_URL)
+    try:
+        # Debug log for the URL being processed
+        print(f"Finding similar pages for URL: {url}")
+
+        # Fetch the top-5 keywords for the given URL
+        top_keywords = crawler._get_top_keywords(url)[:5]
+        if not top_keywords:
+            f.flash(f'No keywords found for "{url}".', 'info')
+            print(f"No keywords found for URL: {url}")
+            formatted_results = []
+        else:
+            # Construct a new query using the top-5 keywords
+            new_query = ' '.join(top_keywords)
+            print(f"New query constructed from top-5 keywords: {new_query}")
+
+            # Use the search engine to find similar pages
+            search_results = search_engine(crawler, new_query)
+            formatted_results = []
+            for similar_url, score in search_results:
+                crawler.index.cursor.execute("SELECT title FROM pages WHERE url=?", (similar_url,))
+                row = crawler.index.cursor.fetchone()
+                formatted_results.append({
+                    'title': row[0] if row else "No Title",
+                    'url': similar_url,
+                    'score': score
+                })
+    except Exception as e:
+        # Log the exception for debugging
+        print(f"Error while finding similar pages for URL {url}: {e}")
+        f.flash('An error occurred while finding similar pages.', 'error')
+        formatted_results = []
+    finally:
+        # Close the database connection
+        crawler.close()
+
+    return f.render_template('similar.html', results=formatted_results, original_url=url)
+
 if __name__ == '__main__':
     app.run(debug=True)

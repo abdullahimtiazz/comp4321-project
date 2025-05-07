@@ -362,6 +362,7 @@
                             {% endfor %}
                         </p>
                     {% endif %}
+                    <a href="{{ url_for('get_similar_pages', url=result.url) }}" class="btn btn-secondary">Get Similar Pages</a>
                 </div>
                 {% endfor %}
             </div>
