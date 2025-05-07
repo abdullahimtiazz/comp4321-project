@@ -484,3 +484,9 @@ class Crawler:
 
         else:
             return 0 # This url doesn't exist, the maxtf of it is 0
+
+    def show_stemmed_keywords(self):
+        self.index.cursor.execute("SELECT word FROM words") 
+        words = [row[0] for row in self.index.cursor.fetchall()]
+        return words
+        
