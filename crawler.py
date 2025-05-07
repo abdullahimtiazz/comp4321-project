@@ -198,7 +198,7 @@ class Crawler:
         parents = [row[0] for row in self.index.cursor.fetchall()]
         return parents if parents else []
 
-    def _get_top_keywords(self, url: str) -> str:
+    def _get_top_keywords(self, url: str) -> List[str]:
         """Get top 5 stemmed keywords (excluding stopwords) for a page."""
         self.index.cursor.execute('''
             SELECT w.word, 
@@ -215,9 +215,9 @@ class Crawler:
             LIMIT 5
         '''.format(', '.join(['?'] * len(self.stopwords))), 
         (url, url, *self.stopwords))
-        
-        keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
-        return '; '.join(keywords) if keywords else "None"    
+    
+        # Return only the keywords as a list
+        return [word for word, _ in self.index.cursor.fetchall()]
         
     # def _get_top_keywords(self, url: str) -> str:
     #     """Get top 5 stemmed keywords (excluding stopwords) for a page."""
