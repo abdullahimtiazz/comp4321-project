@@ -489,4 +489,27 @@ class Crawler:
         self.index.cursor.execute("SELECT word FROM words") 
         words = [row[0] for row in self.index.cursor.fetchall()]
         return words
-        
+
+    def get_similar_pages_query(self, url: str) -> list:
+        """
+        Extract the top 5 most frequent keywords (excluding stopwords) from the given page.
+        Returns a list of keywords to be used as a new query for 'get similar pages'.
+        """
+        self.index.cursor.execute('''
+            SELECT w.word, 
+                (COALESCE(ib.frequency, 0) + COALESCE(it.frequency, 0)) AS total
+            FROM words w
+            LEFT JOIN inverted_index_body ib 
+                ON w.word_id = ib.word_id 
+                AND ib.page_id = (SELECT page_id FROM pages WHERE url = ?)
+            LEFT JOIN inverted_index_title it 
+                ON w.word_id = it.word_id 
+                AND it.page_id = (SELECT page_id FROM pages WHERE url = ?)
+            WHERE w.word NOT IN ({})
+            ORDER BY total DESC
+            LIMIT 5
+        '''.format(', '.join(['?'] * len(self.stopwords))),
+        (url, url, *self.stopwords))
+        keywords = [word for word, total in self.index.cursor.fetchall()]
+        return keywords
+

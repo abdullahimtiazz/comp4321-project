@@ -78,5 +78,17 @@ def search():
                            page=page, 
                            total_pages=total_pages)
 
+@app.route('/similar', methods=['POST'])
+def similar():
+    url = f.request.form['url']
+    crawler = Crawler(START_URL)
+    # Get top-5 keywords for the given URL
+    keywords = crawler.get_similar_pages_query(url)
+    # Join keywords to form a new query string
+    new_query = ' '.join(keywords)
+    crawler.close()
+    # Redirect to search with the new query
+    return f.redirect(f.url_for('search', query=new_query))
+
 if __name__ == '__main__':
     app.run(debug=True)

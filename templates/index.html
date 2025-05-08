@@ -362,6 +362,10 @@
                             {% endfor %}
                         </p>
                     {% endif %}
+                    <form method="post" action="{{ url_for('similar') }}" style="display:inline;">
+                        <input type="hidden" name="url" value="{{ result.url }}">
+                        <button type="submit">Get Similar Pages</button>
+                    </form>
                 </div>
                 {% endfor %}
             </div>
