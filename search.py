@@ -20,32 +20,33 @@ def parse_query(query):
     return terms, phrase_terms
 
 def get_docs_for_term(crawler, word):
-    """Return set of URLs with this word in body or title."""
+    """Return set of page_ids with this word in body or title."""
     # Use inverted index for body and title
     body_docs = crawler.index.get_docs_containing_word_body(word)
     title_docs = crawler.index.get_docs_containing_word_title(word)
+    # These should now return page_ids
     return set(body_docs) | set(title_docs)
 
 def get_docs_for_phrase(crawler, phrase):
     """
-    Return set of URLs where the phrase appears consecutively in body.
+    Return set of page_ids where the phrase appears consecutively in body.
     phrase: list of stemmed words
     """
     docs = get_docs_for_term(crawler, phrase[0])
     result = set()
-    for url in docs:
-        positions = set(crawler.get_body_positions(url, phrase[0]))
+    for page_id in docs:
+        positions = set(crawler.get_body_positions(page_id, phrase[0]))
         if not positions:
             continue
         for pos in positions:
             found = True
             for offset, word in enumerate(phrase[1:], 1):
-                next_positions = crawler.get_body_positions(url, word)
+                next_positions = crawler.get_body_positions(page_id, word)
                 if (pos + offset) not in next_positions:
                     found = False
                     break
             if found:
-                result.add(url)
+                result.add(page_id)
                 break
     return result
 
@@ -89,34 +90,34 @@ def search_engine(crawler, query, top_k=50):
     # 3. For each doc, build document vector (weight per term in the document)
     doc_vectors = {}
     TITLE_WEIGHT = 2.0  # Weight multiplier for title matches
-    for doc in candidate_docs:
+    for page_id in candidate_docs:
         vec = {}
-        # Retrieve all terms in the document
-        all_terms = crawler.get_all_terms_in_doc(doc)  # Assume this method retrieves all terms in the document
-        max_tf = max(
-            crawler.calculate_body_tf(doc, term) + TITLE_WEIGHT * crawler.calculate_title_tf(doc, term)
+        all_terms = crawler.get_all_terms_in_doc(page_id)
+        # Calculate max_tf as the maximum (tf_body + TITLE_WEIGHT * tf_title) over all terms in this page
+        tf_values = [
+            crawler.calculate_body_tf(page_id, term) + TITLE_WEIGHT * crawler.calculate_title_tf(page_id, term)
             for term in all_terms
-        )
-        max_tf = max(max_tf, 1)  # Ensure max_tf is at least 1 to avoid division by zero
+        ]
+        max_tf = max(tf_values) if tf_values else 1  # Avoid division by zero
 
-        for term in all_terms:  # Use all terms in the document, not just query terms
-            tf_body = crawler.calculate_body_tf(doc, term)
-            tf_title = crawler.calculate_title_tf(doc, term)
-            tf = tf_body + TITLE_WEIGHT * tf_title  # Apply title weight multiplier
+        for term in all_terms:
+            tf_body = crawler.calculate_body_tf(page_id, term)
+            tf_title = crawler.calculate_title_tf(page_id, term)
+            tf = tf_body + TITLE_WEIGHT * tf_title
             df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
             if df == 0: df = 1
             idf = math.log(N / df)
             vec[term] = (tf * idf) / max_tf if max_tf > 0 else 0.0
-        doc_vectors[doc] = vec
+        doc_vectors[page_id] = vec
 
     # 4. Cosine similarity
     results = []
-    for doc, vec in doc_vectors.items():
+    for page_id, vec in doc_vectors.items():
         dot = sum(vec.get(t, 0) * query_vector.get(t, 0) for t in query_vector)  # Use .get to handle missing terms
         doc_norm = math.sqrt(sum(v**2 for v in vec.values()))
         query_norm = math.sqrt(sum(v**2 for v in query_vector.values()))
         score = dot / (doc_norm * query_norm) if doc_norm and query_norm else 0.0
-        results.append((doc, score))
+        results.append((page_id, score))
 
     # 5. Top 50
     results.sort(key=lambda x: x[1], reverse=True)
@@ -127,11 +128,12 @@ def print_results(crawler, results):
         print("No results found.")
         return
     print("\nTop Results:")
-    for rank, (url, score) in enumerate(results, 1):
-        # Fetch title from DB
-        crawler.index.cursor.execute("SELECT title FROM pages WHERE url=?", (url,))
+    for rank, (page_id, score) in enumerate(results, 1):
+        # Fetch title and url from DB using page_id
+        crawler.index.cursor.execute("SELECT title, url FROM pages WHERE page_id=?", (page_id,))
         row = crawler.index.cursor.fetchone()
         title = row[0] if row else "No Title"
+        url = row[1] if row else "No URL"
         print(f"{rank}. [{title.strip() if title else 'No Title'}]")
         print(f"   URL: {url}")
         print(f"   Score: {score:.4f}")

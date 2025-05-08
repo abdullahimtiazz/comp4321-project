@@ -254,11 +254,9 @@ class Database:
     def get_docs_containing_word_body(self, word: str):
         """Return list of URLs where 'word' appears in the body."""
         self.cursor.execute("""
-            SELECT DISTINCT p.url
+            SELECT DISTINCT page_id
             FROM inverted_index_body i
-            JOIN pages p ON i.page_id = p.page_id
-            JOIN words w ON i.word_id = w.word_id
-            WHERE w.word = ?
+            WHERE i.word_id = ?
         """, (word,))
         return [row[0] for row in self.cursor.fetchall()]
 
