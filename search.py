@@ -75,9 +75,11 @@ def search_engine(crawler, query, top_k=50):
     query_vector = {}
     for term in query_counts:
         if ' ' in term:
-            # phrase: get df
+            # phrase: get df using min df of words in phrase
             phrase_words = term.split()
-            df = max(1, sum(1 for d in candidate_docs if d in get_docs_for_phrase(crawler, phrase_words)))
+            dfs = [crawler.calculate_body_df(w) + crawler.calculate_title_df(w) for w in phrase_words]
+            df = min(dfs) if dfs else 1
+            if df == 0: df = 1
         else:
             df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
             if df == 0: df = 1
