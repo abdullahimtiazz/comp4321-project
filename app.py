@@ -81,14 +81,14 @@ def search():
 @app.route('/similar', methods=['POST'])
 def similar():
     url = f.request.form['url']
-    existing_query = f.request.form.get('current_query', '')  # Get existing query from hidden form field
+    # Remove usage of existing_query, only use keywords from similar page
     crawler = Crawler(START_URL)
     # Get top-5 keywords for the given URL
     keywords = crawler.get_similar_pages_query(url)
-    # Join keywords to form a new query string and append to existing query
-    new_query = f"{existing_query} {' '.join(keywords)}".strip()
+    # Use only the keywords as the new query
+    new_query = ' '.join(keywords).strip()
     crawler.close()
-    # Redirect to search with the combined query
+    # Redirect to search with the new query
     return f.redirect(f.url_for('search', query=new_query))
 
 @app.route('/get_keywords', methods=['GET'])
