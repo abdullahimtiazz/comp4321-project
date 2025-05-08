@@ -91,13 +91,13 @@ def search_engine(crawler, query, top_k=50):
     TITLE_WEIGHT = 2.0  # Weight multiplier for title matches
     for doc in candidate_docs:
         vec = {}
+        # Efficiently get max_tf using DB-backed methods
+        body_maxtf = crawler.calculate_body_maxtf(doc)
+        title_maxtf = crawler.calculate_title_maxtf(doc)
+        max_tf = max(body_maxtf, TITLE_WEIGHT * title_maxtf, 1)  # Ensure at least 1
+
         # Retrieve all terms in the document
         all_terms = crawler.get_all_terms_in_doc(doc)  # Assume this method retrieves all terms in the document
-        max_tf = max(
-            crawler.calculate_body_tf(doc, term) + TITLE_WEIGHT * crawler.calculate_title_tf(doc, term)
-            for term in all_terms
-        )
-        max_tf = max(max_tf, 1)  # Ensure max_tf is at least 1 to avoid division by zero
 
         for term in all_terms:  # Use all terms in the document, not just query terms
             tf_body = crawler.calculate_body_tf(doc, term)
