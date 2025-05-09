@@ -1,5 +1,5 @@
 from crawler import Crawler
-crawler = Crawler(start_url= "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm", max_pages= 30)
+crawler = Crawler(start_url= "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm", max_pages= 300)
 crawler.crawl()
 crawler.generate_spider_result()
 # print("total frequency for cse in all page bodies:", crawler.get_word_frequency_body("hkust"))

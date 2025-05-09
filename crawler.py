@@ -10,7 +10,7 @@ from nltk.stem import PorterStemmer
 
 
 class Crawler:
-    def __init__(self, start_url: str, max_pages: int = 30):
+    def __init__(self, start_url: str, max_pages: int = 300):
         self.title=""
         self.start_url = start_url
         self.max_pages = max_pages
