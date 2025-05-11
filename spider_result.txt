@@ -90,7 +90,9 @@ Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
 Size: 499 bytes
 Keywords: news(4); bbc(3); 2(1); 1(1); bird(1)
 Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
-Child Links: None
+Child Links: https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc1.htm,
+https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc2.htm,
+https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc3.htm
 
 ----------------
 
@@ -100,7 +102,8 @@ Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
 Size: 448 bytes
 Keywords: news(4); cnn(3); sweet(1); sauerkraut(1); capit(1)
 Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm
-Child Links: None
+Child Links: https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn1.htm,
+https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn2.htm
 
 ----------------
 
@@ -310,4 +313,2674 @@ Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
 Size: 7583 bytes
 Keywords: movi(13); user(11); imdb(11); immort(9); belov(9)
 Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: By Dawn's Early Light (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/19.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 2827 bytes
+Keywords: search(15); dawn'(14); light(13); titl(12); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Seeta Aur Geeta (1972)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/20.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 5856 bytes
+Keywords: imdb(11); movi(10); seeta(10); user(10); aur(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Strange Relations (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/21.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 6405 bytes
+Keywords: user(11); imdb(11); movi(9); rate(9); tv(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Chump Change (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/22.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 6333 bytes
+Keywords: movi(14); user(11); imdb(11); rate(10); chump(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Clifford: Clifford Saves the Day! / Clifford's Fluffiest Friend Cleo (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/23.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 3844 bytes
+Keywords: day(19); clifford(18); save(17); search(15); titl(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: My Bloody Valentine (1981)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/24.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 6894 bytes
+Keywords: movi(11); user(11); imdb(11); rate(11); valentin(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Inspector Morse 31: Death Is Now My Neighbour (1997)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/25.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 2660 bytes
+Keywords: search(15); titl(9); movi(8); inspector(8); mors(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Never Die Alone (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/26.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 7213 bytes
+Keywords: movi(16); user(11); imdb(11); rate(9); 2004(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Sesame Street: Elmo's World: The Street We Live On (1962)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/27.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 3821 bytes
+Keywords: street(30); search(15); sesam(14); live(11); world(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Lilo and Stitch (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/28.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 3863 bytes
+Keywords: stitch(19); lilo(15); search(15); titl(15); result(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Boycott (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/29.html
+Last Modification Date: Tue, 16 May 2023 05:03:36 GMT
+Size: 3302 bytes
+Keywords: search(15); titl(14); boycott(12); movi(8); match(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Something's Gotta Give (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/30.html
+Last Modification Date: Tue, 16 May 2023 05:03:36 GMT
+Size: 9304 bytes
+Keywords: movi(20); love(15); user(11); imdb(11); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Classic Albums: Meat Loaf: Bat Out of Hell (1999)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/31.html
+Last Modification Date: Tue, 16 May 2023 05:03:36 GMT
+Size: 4787 bytes
+Keywords: imdb(11); movi(10); user(10); rate(8); classic(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: ABC Primetime: Mel Gibson's The Passion of the Christ (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/32.html
+Last Modification Date: Tue, 16 May 2023 05:03:36 GMT
+Size: 2716 bytes
+Keywords: search(15); titl(9); movi(8); abc(8); primetim(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Aqua Teen Hunger Force: Vol. 1 (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/33.html
+Last Modification Date: Tue, 16 May 2023 05:03:36 GMT
+Size: 2759 bytes
+Keywords: search(15); aqua(11); teen(11); hunger(11); forc(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Ashtanga Yoga: Beginner's Practice with Nicki Doane (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/34.html
+Last Modification Date: Tue, 16 May 2023 05:03:36 GMT
+Size: 2702 bytes
+Keywords: search(15); titl(9); movi(8); ashtanga(8); yoga(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Ferngully 2: The Magical Rescue (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/35.html
+Last Modification Date: Tue, 16 May 2023 05:03:36 GMT
+Size: 6086 bytes
+Keywords: voic(16); movi(13); ferngulli(12); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Lady Chatterley (1992)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/36.html
+Last Modification Date: Tue, 16 May 2023 05:03:36 GMT
+Size: 3839 bytes
+Keywords: ladi(33); chatterley(23); search(15); titl(15); aka(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Zatoichi's Conspiracy (1973)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/37.html
+Last Modification Date: Tue, 16 May 2023 05:03:36 GMT
+Size: 6818 bytes
+Keywords: zatôichi(12); imdb(11); movi(10); user(10); film(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Daydream Obsession (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/38.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 3745 bytes
+Keywords: obsess(28); search(15); titl(14); daydream(10); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Love Reinvented (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/39.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 6494 bytes
+Keywords: segment(17); movi(12); imdb(11); la(10); user(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Pitcher and the Pin-Up (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/40.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 5819 bytes
+Keywords: imdb(11); movi(10); user(10); rate(9); love(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Horror Vision (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/41.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 3793 bytes
+Keywords: horror(23); search(15); titl(14); vision(11); aka(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Searching for Paradise (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/42.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 6426 bytes
+Keywords: user(11); imdb(11); movi(9); rate(9); search(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Silent Service (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/43.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 3683 bytes
+Keywords: servic(26); silent(17); search(15); titl(15); tv(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Spitfire Grill (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/44.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 7514 bytes
+Keywords: movi(16); user(11); imdb(11); spitfir(10); 1996(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Love Letter (1999)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/45.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 3511 bytes
+Keywords: love(27); letter(26); search(15); titl(14); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Rudolph the Red-Nosed Reindeer (1964)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/46.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 2849 bytes
+Keywords: search(15); rudolph(12); red(12); nose(12); reindeer(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Bad and the Beautiful (1952)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/47.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 3892 bytes
+Keywords: beauti(30); search(15); titl(15); bad(12); aka(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Justice League (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/48.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 3580 bytes
+Keywords: justic(30); search(15); leagu(15); titl(15); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Devo: The Complete Truth About De-evolution (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/49.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 2866 bytes
+Keywords: search(15); truth(10); titl(10); complet(9); de(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: A Yank in the R.A.F. (1941)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/50.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 7217 bytes
+Keywords: imdb(11); movi(10); user(10); film(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Jonah: A VeggieTales Movie: Bonus Material (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/51.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 2781 bytes
+Keywords: movi(18); search(15); titl(11); jonah(10); veggietal(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Weather Underground (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/52.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 10792 bytes
+Keywords: footag(17); archiv(17); weather(13); underground(11); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Bonesetter (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/53.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 3566 bytes
+Keywords: titl(18); search(15); bonesett(10); aka(9); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: We're Not Married (1952)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/54.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 5636 bytes
+Keywords: movi(11); imdb(11); user(10); rate(10); we'r(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Jade (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/55.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 7977 bytes
+Keywords: movi(16); user(11); imdb(11); plot(9); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Carandiru (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/56.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 2769 bytes
+Keywords: search(15); titl(13); carandiru(11); movi(8); match(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Richard III (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/57.html
+Last Modification Date: Tue, 16 May 2023 05:03:38 GMT
+Size: 7318 bytes
+Keywords: richard(12); movi(11); user(11); imdb(11); rate(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Dragonheart (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/58.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 7828 bytes
+Keywords: movi(14); dragonheart(11); user(11); imdb(11); rate(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Sex and the Beauties (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/59.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 6428 bytes
+Keywords: movi(18); imdb(11); user(10); rate(8); titl(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Libertine (1969)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/60.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 3873 bytes
+Keywords: libertin(25); titl(17); search(15); aka(11); result(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Ricky Martin: One Night Only (1999)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/61.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 4172 bytes
+Keywords: imdb(11); movi(9); user(9); ricki(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Ken Burns' America: Empire of the Air (1991)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/62.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 3769 bytes
+Keywords: search(15); empir(12); titl(12); america(11); tv(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Crash Dive (1943)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/63.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 6958 bytes
+Keywords: movi(12); imdb(11); user(10); crash(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Outside the Law (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/64.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 3775 bytes
+Keywords: outsid(29); law(20); titl(18); search(15); aka(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Lost in the Pershing Point Hotel (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/65.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 5762 bytes
+Keywords: imdb(11); user(10); movi(9); film(9); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Barbarian Queen 2 (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/66.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 3663 bytes
+Keywords: barbarian(23); search(15); titl(14); queen(12); aka(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Vampire Journals (1997)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/67.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 6074 bytes
+Keywords: vampir(18); movi(14); user(11); imdb(11); film(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Invader Zim (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/68.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 9570 bytes
+Keywords: episod(18); 2001(15); zim(14); rate(12); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: WWE: Armageddon 2003 (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/69.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 2996 bytes
+Keywords: armageddon(20); search(15); wwe(13); 2003(12); titl(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Tai Chi: The 24 Forms (1999)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/70.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 3736 bytes
+Keywords: search(15); tv(12); form(11); titl(11); chi(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Maya Lin: A Strong Clear Vision (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/71.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 5590 bytes
+Keywords: maya(12); imdb(11); movi(10); user(10); lin(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: At Home Among Strangers (1974)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/72.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 4027 bytes
+Keywords: stranger(37); search(16); home(16); titl(15); tv(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Davy Crockett: 50th Anniversary Double Feature (1954)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/73.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 2667 bytes
+Keywords: search(15); titl(9); movi(8); davi(8); crockett(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: 6ixtynin9 (1999)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/74.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 7152 bytes
+Keywords: movi(14); user(11); imdb(11); rate(9); titl(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Grind (1997)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/75.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 5651 bytes
+Keywords: user(11); imdb(11); movi(10); rate(8); 1997(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: I Love Lucy: Season 2 (1952)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/76.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 3530 bytes
+Keywords: love(28); luci(17); titl(16); search(15); result(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Congo (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/77.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 7052 bytes
+Keywords: movi(15); rate(12); user(11); imdb(11); 1995(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Jingle All the Way (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/78.html
+Last Modification Date: Tue, 16 May 2023 05:03:40 GMT
+Size: 8021 bytes
+Keywords: movi(13); user(11); imdb(11); rate(10); offic(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Killing (1956)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/79.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 8474 bytes
+Keywords: kill(127); aka(41); titl(31); tv(19); search(15)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Winter Kills (1979)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/80.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 8822 bytes
+Keywords: movi(12); kill(12); winter(12); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Antarctica: IMAX (1991)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/81.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 3738 bytes
+Keywords: antarctica(23); search(15); titl(15); aka(9); tv(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Frogmen (1951)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/82.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 6731 bytes
+Keywords: imdb(11); user(10); movi(9); frogmen(9); film(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Silkwood (1983)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/83.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 7241 bytes
+Keywords: movi(12); silkwood(12); user(11); imdb(11); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Powerpuff Girls Movie (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/84.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 8532 bytes
+Keywords: movi(21); voic(14); powerpuff(13); girl(12); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Elfen Lied (2005)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/85.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 3668 bytes
+Keywords: lie(21); search(15); tv(14); titl(13); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Iron Monkey 2 (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/86.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 3631 bytes
+Keywords: monkey(28); iron(16); 2(15); search(15); titl(15)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Louder Than Bombs (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/87.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 5523 bytes
+Keywords: imdb(11); user(10); movi(9); 2002(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Record of Lodoss War: Chronicles of the Heroic Knight (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/88.html
+Last Modification Date: Tue, 16 May 2023 05:03:42 GMT
+Size: 9657 bytes
+Keywords: voic(60); version(41); english(39); lodoss(17); episod(15)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Chain of Command (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/89.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 7134 bytes
+Keywords: user(11); imdb(11); movi(10); rate(9); chain(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Lemon Drop Kid (1951)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/90.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 4072 bytes
+Keywords: kid(24); lemon(17); search(15); titl(11); drop(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: WWE: Royal Rumble 2005 (2005)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/91.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 3169 bytes
+Keywords: royal(27); rumbl(27); search(15); 2005(12); wwe(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: ECW: Cyberslam '99 (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/92.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 4530 bytes
+Keywords: imdb(11); movi(9); user(9); ecw(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: They Came Back (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/93.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 3504 bytes
+Keywords: search(15); titl(14); movi(8); match(7); aka(6)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: G3: Live in Concert (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/94.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 5093 bytes
+Keywords: imdb(11); live(10); user(10); movi(9); concert(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Dona Herlinda and Her Son (1985)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/95.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 5579 bytes
+Keywords: movi(11); imdb(11); user(10); herlinda(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Inside the Space Station (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/96.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 4846 bytes
+Keywords: imdb(11); station(10); user(10); movi(9); space(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Mostly Martha (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/97.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 2840 bytes
+Keywords: search(15); titl(13); martha(12); movi(8); match(6)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Battle of Algiers: Bonus Material (1965)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/98.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 2832 bytes
+Keywords: search(15); battl(11); algier(11); titl(10); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: A Fishy Story (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/99.html
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 3271 bytes
+Keywords: stori(29); search(15); fishi(13); titl(12); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Sam the Iron Bridge (1993)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/100.html
+Last Modification Date: Tue, 16 May 2023 05:03:16 GMT
+Size: 4110 bytes
+Keywords: bridg(30); titl(16); search(15); iron(10); sam(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Complete Shamanic Princess (1997)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/101.html
+Last Modification Date: Tue, 16 May 2023 05:03:16 GMT
+Size: 3166 bytes
+Keywords: search(15); titl(14); complet(12); shaman(9); princess(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Notre Musique (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/102.html
+Last Modification Date: Tue, 16 May 2023 05:03:16 GMT
+Size: 10796 bytes
+Keywords: movi(13); notr(13); musiqu(13); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Sanford and Son: Season 6 (1976)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/103.html
+Last Modification Date: Tue, 16 May 2023 05:03:16 GMT
+Size: 3771 bytes
+Keywords: sanford(16); search(15); titl(15); son(12); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Great Race (1965)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/104.html
+Last Modification Date: Tue, 16 May 2023 05:03:16 GMT
+Size: 3678 bytes
+Keywords: race(31); search(15); titl(13); tv(10); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Obsessed (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/105.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 3535 bytes
+Keywords: obsess(29); titl(18); search(15); tv(10); aka(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Stevie Ray Vaughan and Double Trouble: Live at Montreux 1982 and 1985 (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/106.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 5754 bytes
+Keywords: stevi(11); imdb(11); user(10); movi(9); doubl(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Magnolia: Bonus Material (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/107.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 2513 bytes
+Keywords: search(15); titl(9); movi(8); bonu(8); materi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Spartan (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/108.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 7939 bytes
+Keywords: user(11); imdb(11); movi(10); rate(9); 2004(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: No Way Back (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/109.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 3379 bytes
+Keywords: search(15); titl(13); movi(8); match(7); result(6)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Scandal (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/110.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 7950 bytes
+Keywords: user(11); imdb(11); movi(10); film(9); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Duplex (Widescreen) (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/111.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 2478 bytes
+Keywords: search(15); titl(9); movi(8); duplex(8); widescreen(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Eye of Vichy (1993)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/112.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 7500 bytes
+Keywords: archiv(58); footag(57); movi(11); de(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Bruce Lee: A Warrior's Journey (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/113.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 6989 bytes
+Keywords: footag(26); archiv(25); lee(14); movi(11); bruce(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Dominion Tank Police Part 1 and 2 (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/114.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 2792 bytes
+Keywords: search(15); dominion(13); tank(11); polic(11); titl(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Lord Peter Wimsey: Murder Must Advertise (1973)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/115.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 8368 bytes
+Keywords: advertis(14); imdb(11); movi(10); user(10); peter(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Bear Cub (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/116.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 3868 bytes
+Keywords: titl(22); bear(18); search(15); cub(11); aka(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Silk Stockings (1957)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/117.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 6617 bytes
+Keywords: movi(11); imdb(11); user(10); rate(8); silk(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Rambo: First Blood Part II (1985)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/118.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 8604 bytes
+Keywords: rambo(16); movi(12); blood(11); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Travel the World by Train: Africa (1999)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/119.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 3953 bytes
+Keywords: imdb(11); movi(10); travel(9); user(9); 1999(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Plain Dirty (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/120.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 7025 bytes
+Keywords: movi(12); user(11); imdb(11); love(9); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Beyonce: Live at Wembley (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/121.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 3880 bytes
+Keywords: imdb(11); movi(9); user(9); rate(8); live(6)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Cube 2: Hypercube (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/122.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 7862 bytes
+Keywords: cube(17); hypercub(16); movi(14); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Chain of Fools (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/123.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 7193 bytes
+Keywords: user(11); imdb(11); chain(10); fool(10); rate(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Cold Blooded (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/124.html
+Last Modification Date: Tue, 16 May 2023 05:03:18 GMT
+Size: 3766 bytes
+Keywords: cold(31); blood(30); titl(18); aka(16); search(15)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Nighthawks (1981)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/125.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 7979 bytes
+Keywords: user(11); imdb(11); movi(10); 1981(8); nighthawk(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Vampire Effect (aka Twins Effect) (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/126.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 3084 bytes
+Keywords: effect(17); search(15); vampir(14); aka(13); titl(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Fatal Beauty (1987)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/127.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 6802 bytes
+Keywords: user(11); imdb(11); movi(10); rate(9); beauti(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Mr. Vampire (1985)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/128.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 3977 bytes
+Keywords: vampir(36); aka(22); search(15); titl(15); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Darkwolf (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/129.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 3300 bytes
+Keywords: search(15); der(14); wolf(13); titl(10); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Drowning on Dry Land (1999)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/130.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 5484 bytes
+Keywords: imdb(11); movi(10); user(10); rate(9); drown(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Arachnid (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/131.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 7156 bytes
+Keywords: movi(16); user(11); imdb(11); rate(9); arachnid(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Lucio Fulci: The Beyond (1981)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/132.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 3905 bytes
+Keywords: beyond(27); search(15); titl(13); aka(10); lucio(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Viva La Bam: Season 1 (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/133.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 7109 bytes
+Keywords: episod(19); 2003(18); bam(12); rate(12); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Spirit Lost (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/134.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 5370 bytes
+Keywords: imdb(11); user(10); rate(10); movi(9); lost(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: GTO: Great Teacher Onizuka: Set 2 (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/135.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 2706 bytes
+Keywords: search(15); gto(11); teacher(10); onizuka(10); titl(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Cat and the Canary (1927)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/136.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 3394 bytes
+Keywords: canari(27); search(15); cat(15); titl(13); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Naked Lies (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/137.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 5926 bytes
+Keywords: movi(11); imdb(11); user(10); plot(9); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Star Trek: Voyager: Season 1 (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/138.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 4116 bytes
+Keywords: star(28); trek(24); voyag(22); titl(19); search(16)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Allergies: A Natural Approach (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/139.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 2548 bytes
+Keywords: search(15); titl(9); movi(8); natur(8); allergi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Lost in the Wild (1993)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/140.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 3997 bytes
+Keywords: wild(25); lost(17); search(15); aka(13); west(13)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Goddess of Mercy (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/141.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 4112 bytes
+Keywords: goddess(31); titl(24); aka(16); search(15); merci(13)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Tricky Master (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/142.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 6415 bytes
+Keywords: movi(17); wong(13); imdb(11); user(10); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Game (1997)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/143.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 3283 bytes
+Keywords: game(26); search(17); titl(14); match(10); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Deepak Chopra: The Way of the Wizard and Alchemy (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/144.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 2693 bytes
+Keywords: search(15); titl(9); movi(8); deepak(8); chopra(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Get Out Your Handkerchiefs (1978)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/145.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 6485 bytes
+Keywords: movi(13); imdb(11); user(10); rate(9); 1978(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Cannibal Women in the Avocado Jungle of Death (1988)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/146.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 6918 bytes
+Keywords: avocado(13); movi(11); women(11); jungl(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Where Sleeping Dogs Lie (1992)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/147.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 5656 bytes
+Keywords: imdb(11); movi(10); user(10); rate(8); lie(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Sweet November (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/148.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 8272 bytes
+Keywords: rate(14); user(11); imdb(11); movi(10); film(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Edward R. Murrow Collection (2005)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/149.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 4092 bytes
+Keywords: collect(25); search(15); titl(15); edward(9); murrow(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Firetrap (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/150.html
+Last Modification Date: Tue, 16 May 2023 05:03:20 GMT
+Size: 6335 bytes
+Keywords: movi(14); user(11); imdb(11); rate(9); 2001(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Sleepover Nightmare (2005)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/151.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 5969 bytes
+Keywords: movi(12); user(11); imdb(11); rate(9); 2005(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: A Little Princess (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/152.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 3982 bytes
+Keywords: littl(27); princess(23); titl(20); search(15); aka(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: MTV Yoga (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/153.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 3576 bytes
+Keywords: yoga(23); mtv(16); search(15); titl(14); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Demon Warrior Koji (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/154.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 4114 bytes
+Keywords: warrior(29); titl(16); search(15); movi(10); demon(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Strongest Man in the World (1975)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/155.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 3882 bytes
+Keywords: world(26); strongest(17); search(15); titl(13); movi(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Husbands and Wives (1992)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/156.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 7467 bytes
+Keywords: movi(12); user(11); imdb(11); film(11); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Laird: White Knuckle Extreme (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/157.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 2675 bytes
+Keywords: search(15); white(10); knuckl(10); extrem(10); titl(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: A Killer Within (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/158.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 8029 bytes
+Keywords: movi(15); user(11); imdb(11); rate(9); amazon(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Gentlemen of Fortune (1971)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/159.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 7526 bytes
+Keywords: movi(12); imdb(11); user(10); plot(9); russian(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Gormenghast (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/160.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 6564 bytes
+Keywords: movi(11); user(11); imdb(11); gormenghast(10); 2000(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Ninotchka (1939)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/161.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 7099 bytes
+Keywords: movi(13); ninotchka(11); user(11); imdb(11); rate(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: John Cleese on How to Irritate People (1968)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/162.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 6997 bytes
+Keywords: irrit(13); peopl(11); imdb(11); tv(11); movi(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: MTV: Making the Band 2: Best of Season 1 (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/163.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 4086 bytes
+Keywords: season(16); search(15); titl(13); 2(10); tv(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: One Last Dance (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/164.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 6148 bytes
+Keywords: movi(15); danc(14); user(11); imdb(11); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Richard Pryor: Live on the Sunset Strip (1982)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/165.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 6062 bytes
+Keywords: richard(15); pryor(14); imdb(11); movi(10); user(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Fame (1980)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/166.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 8511 bytes
+Keywords: fame(14); movi(13); user(11); imdb(11); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Chorus (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/167.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 4135 bytes
+Keywords: choru(47); search(15); girl(15); titl(15); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Smokey and the Bandit Part 3 (1983)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/168.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 9575 bytes
+Keywords: bandit(19); movi(16); smokey(12); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Cartoon Network Halloween: 9 Creepy Cartoon Capers (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/169.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 2695 bytes
+Keywords: cartoon(16); search(15); titl(9); movi(8); network(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Tomorrow (1972)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/170.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 5980 bytes
+Keywords: movi(11); user(11); imdb(11); film(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Funny Face (1957)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/171.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 7988 bytes
+Keywords: movi(11); user(11); imdb(11); funni(9); plot(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Jack (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/172.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 3066 bytes
+Keywords: jack(23); search(17); titl(12); match(10); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Devil's Brigade (1968)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/173.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 6984 bytes
+Keywords: movi(14); brigad(11); user(11); imdb(11); pvt(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Adam-12: Season 1 (1968)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/174.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 3601 bytes
+Keywords: search(15); adam(15); 12(14); titl(14); 2(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Reservoir Dogs (1992)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/175.html
+Last Modification Date: Tue, 16 May 2023 05:03:22 GMT
+Size: 11108 bytes
+Keywords: film(19); rate(13); user(11); imdb(11); movi(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The History Channel Presents: Troy: Unearthing the Legend (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/176.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 2830 bytes
+Keywords: search(15); titl(10); histori(9); channel(9); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Pressure (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/177.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 5923 bytes
+Keywords: movi(13); imdb(11); pressur(10); user(10); rate(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Regular Guys (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/178.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 5971 bytes
+Keywords: imdb(11); movi(10); user(10); rate(9); 1996(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Bollywood Bound (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/179.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 4620 bytes
+Keywords: imdb(11); movi(10); user(10); rate(8); bollywood(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Scratch (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/180.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 4099 bytes
+Keywords: scratch(51); titl(21); search(15); aka(12); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Last Shot (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/181.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 3414 bytes
+Keywords: shot(22); search(15); titl(14); result(9); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Moby: Play (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/182.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 4803 bytes
+Keywords: imdb(11); play(10); user(10); movi(9); mobi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: IFilm: Deranged (2005)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/183.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 3862 bytes
+Keywords: film(21); search(15); tv(13); titl(12); derang(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Billy Blanks: Tae Bo: Cardio Circuit 1 (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/184.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 2611 bytes
+Keywords: search(15); titl(9); movi(8); 1(8); billi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Missing in Action 2: The Beginning / Missing in Action 3: Braddock (1985)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/185.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 6805 bytes
+Keywords: movi(13); miss(13); action(13); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Panic in the Streets (1950)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/186.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 6793 bytes
+Keywords: user(11); imdb(11); movi(10); chase(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Death to Smoochy (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/187.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 8366 bytes
+Keywords: movi(11); user(11); imdb(11); rate(11); film(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Dead Birds (2005)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/188.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 3975 bytes
+Keywords: dead(25); bird(20); titl(19); search(15); aka(15)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Airplane II: The Sequel (1982)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/189.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 7714 bytes
+Keywords: movi(18); airplan(13); sequel(11); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Blood and Sand (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/190.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 3682 bytes
+Keywords: blood(31); sand(18); titl(18); search(15); aka(13)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: X2: X-Men United (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/191.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 8773 bytes
+Keywords: movi(11); user(11); imdb(11); rate(11); titl(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The SoulTaker (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/192.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 5077 bytes
+Keywords: imdb(11); user(10); rate(10); movi(9); episod(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Marilyn Manson: Fear of a Satanic Planet (2005)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/193.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 2625 bytes
+Keywords: search(15); titl(9); movi(8); planet(8); marilyn(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Arliss: The Best of Arliss (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/194.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 3792 bytes
+Keywords: arliss(16); search(15); titl(12); tv(10); movi(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Chasing Freedom (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/195.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 8378 bytes
+Keywords: taliban(14); movi(12); chase(11); freedom(11); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Peter Tosh: Stepping Razor: Red X (1992)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/196.html
+Last Modification Date: Tue, 16 May 2023 05:03:24 GMT
+Size: 2638 bytes
+Keywords: search(15); titl(10); red(9); step(9); razor(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Taking Lives (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/197.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 8754 bytes
+Keywords: movi(13); rate(12); user(11); imdb(11); live(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Gupt (1997)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/198.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 6856 bytes
+Keywords: movi(18); imdb(11); user(10); rate(8); gupt(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Deer Hunter (1978)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/199.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 3896 bytes
+Keywords: hunter(29); titl(17); search(15); deer(13); aka(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Fall of the Roman Empire (1964)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/200.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 7062 bytes
+Keywords: movi(14); empir(11); user(11); imdb(11); roman(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Home Movie (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/201.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 6102 bytes
+Keywords: movi(19); home(11); user(11); imdb(11); peopl(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Ruby's Bucket of Blood (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/202.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 6495 bytes
+Keywords: movi(11); imdb(11); user(10); rate(9); 2001(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Sports Illustrated Swimsuit Edition: 1997 (1997)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/203.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 3412 bytes
+Keywords: sport(20); illustr(19); swimsuit(19); search(16); 1997(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Venus Boyz (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/204.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 5782 bytes
+Keywords: imdb(11); movi(10); user(10); rate(9); 2002(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Troy: Bonus Material (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/205.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 2668 bytes
+Keywords: search(15); titl(10); materi(9); movi(8); bonu(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Unconstitutional: The War on Our Civil Liberties (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/206.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 7114 bytes
+Keywords: footag(16); archiv(16); user(11); imdb(11); movi(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Denise Austin: Ultimate Fat Burner (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/207.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 2583 bytes
+Keywords: search(15); titl(9); movi(8); denis(8); austin(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Three Stooges: Sing a Song of Six Pants (1947)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/208.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 4101 bytes
+Keywords: song(25); search(15); sing(15); titl(13); tv(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Star Trek: Deep Space Nine: Season 5 (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/209.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 3068 bytes
+Keywords: space(16); deep(16); nine(16); search(15); star(15)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Onmyoji (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/210.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 6765 bytes
+Keywords: english(13); version(13); voic(12); movi(11); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Agronomist (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/211.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 6972 bytes
+Keywords: movi(11); user(11); imdb(11); rate(9); agronomist(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Querelle (1982)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/212.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 6508 bytes
+Keywords: movi(12); querel(11); user(11); imdb(11); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Dinner Rush (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/213.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 7801 bytes
+Keywords: movi(13); imdb(12); user(11); rate(9); dinner(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Read-Along: Beauty and the Beast (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/214.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 4007 bytes
+Keywords: beauti(33); beast(33); search(15); titl(14); aka(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: That '70s Show: Season 1 (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/215.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 3705 bytes
+Keywords: search(15); titl(15); 70(12); tv(11); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Impostor (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/216.html
+Last Modification Date: Tue, 16 May 2023 05:03:26 GMT
+Size: 3522 bytes
+Keywords: impostor(41); search(15); titl(13); tv(9); el(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Cherry 2000 (1988)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/217.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 6819 bytes
+Keywords: movi(15); user(11); imdb(11); 2000(10); cherri(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Triumph: Live at the US Festival (1983)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/218.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 3746 bytes
+Keywords: festiv(23); live(19); search(15); titl(13); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Neon Bible (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/219.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 6911 bytes
+Keywords: movi(15); imdb(11); user(10); rate(8); neon(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Winston Churchill: The Wilderness Years (1983)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/220.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 10591 bytes
+Keywords: churchil(19); winston(16); imdb(11); baldwin(11); movi(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Voyage to the Planets and Beyond (2005)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/221.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 3071 bytes
+Keywords: search(15); voyag(14); planet(12); beyond(11); titl(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Yellow (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/222.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 7377 bytes
+Keywords: lee(12); user(11); imdb(11); film(10); movi(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Chappelle's Show: Season 1 (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/223.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 7877 bytes
+Keywords: 2003(13); episod(13); rate(13); user(12); chappel(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Midsomer Murders: Blood Will Out (1999)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/224.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 2569 bytes
+Keywords: search(15); titl(9); movi(8); murder(8); blood(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Cookout (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/225.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 3605 bytes
+Keywords: titl(16); search(15); cookout(10); workout(9); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Henry: Portrait of a Serial Killer 2 (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/226.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 3516 bytes
+Keywords: killer(18); titl(17); portrait(16); search(15); serial(15)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Carol Burnett Show: Show Stoppers (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/227.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 3114 bytes
+Keywords: carol(17); burnett(17); search(15); tv(10); titl(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Butch and Sundance: The Early Days (1979)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/228.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 6256 bytes
+Keywords: movi(16); imdb(11); butch(10); sundanc(10); user(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Peter Gabriel: Growing Up Live (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/229.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 2880 bytes
+Keywords: search(15); titl(13); live(12); peter(11); gabriel(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Unsolved Mysteries: Psychics (1987)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/230.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 3104 bytes
+Keywords: search(15); mysteri(15); unsolv(14); titl(12); movi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Marooned in Iraq (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/231.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 6311 bytes
+Keywords: movi(11); imdb(11); user(10); titl(9); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Gross Anatomy (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/232.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 6767 bytes
+Keywords: movi(21); user(11); imdb(11); gross(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Chato's Land (1971)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/233.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 11167 bytes
+Keywords: movi(28); land(13); chato'(11); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Animation Legend: Winsor McCay (1921)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/234.html
+Last Modification Date: Tue, 16 May 2023 05:03:28 GMT
+Size: 3888 bytes
+Keywords: imdb(11); movi(9); winsor(9); user(9); mccay(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Unhook the Stars (1996)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/235.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 7025 bytes
+Keywords: movi(13); user(11); imdb(11); rate(9); star(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Cartoon Crazys Sci-Fi (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/236.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 2492 bytes
+Keywords: search(15); titl(9); movi(8); cartoon(8); crazi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Broken Blossoms (1918)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/237.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 3769 bytes
+Keywords: blossom(30); titl(19); search(15); broken(14); aka(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Led Zeppelin: The Song Remains the Same (1976)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/238.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 9335 bytes
+Keywords: led(18); zeppelin(17); song(13); movi(11); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Winnie the Pooh: Springtime with Roo (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/239.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 6829 bytes
+Keywords: winni(15); pooh(15); imdb(11); movi(10); roo(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Woman of the Year (1942)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/240.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 7342 bytes
+Keywords: movi(17); user(11); imdb(11); rate(8); woman(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: North by Northwest (1959)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/241.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 9712 bytes
+Keywords: movi(13); film(13); north(12); northwest(11); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Neon Genesis Evangelion: The End of Evangelion (1995)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/242.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 8900 bytes
+Keywords: version(17); evangelion(16); voic(15); japanes(13); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Pressure Point (1962)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/243.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 5973 bytes
+Keywords: user(11); imdb(11); movi(10); rate(8); pressur(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Stellvia (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/244.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 5667 bytes
+Keywords: stellvia(12); imdb(11); user(10); rate(10); movi(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Road Dogz (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/245.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 6649 bytes
+Keywords: film(15); movi(12); imdb(11); user(10); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Boston Strangler (1968)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/246.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 3904 bytes
+Keywords: strangler(31); titl(16); search(15); aka(13); boston(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Oleanna (1994)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/247.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 7915 bytes
+Keywords: movi(11); user(11); imdb(11); carol(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Michael Moore's The Awful Truth: Season 2 (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/248.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 2696 bytes
+Keywords: search(15); michael(10); titl(10); movi(8); truth(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Hunters (1958)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/249.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 6093 bytes
+Keywords: hunter(76); aka(24); titl(23); search(15); tv(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Cast a Giant Shadow (1966)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/250.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 7615 bytes
+Keywords: cast(16); movi(11); giant(11); shadow(11); user(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Midsomer Murders: Strangler's Wood (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/251.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 2583 bytes
+Keywords: search(15); titl(9); movi(8); murder(8); midsom(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Stuart Little 2 (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/252.html
+Last Modification Date: Tue, 16 May 2023 05:03:30 GMT
+Size: 8171 bytes
+Keywords: littl(24); stuart(19); movi(16); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: A Night at the Opera (1935)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/253.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 4111 bytes
+Keywords: night(25); titl(18); search(15); opera(15); result(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Westender (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/254.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 6053 bytes
+Keywords: movi(14); user(11); imdb(11); rate(9); westend(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Hunchback of Notre Dame II (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/255.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 6973 bytes
+Keywords: voic(15); movi(14); user(11); imdb(11); ii(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Ghost Dog: The Way of the Samurai (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/256.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 10489 bytes
+Keywords: film(22); ghost(18); samurai(16); dog(15); movi(13)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Charlotte's Web (1973)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/257.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 7637 bytes
+Keywords: voic(15); movi(13); charlotte'(11); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Mann (1999)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/258.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 6687 bytes
+Keywords: mann(11); user(11); imdb(11); movi(10); 1999(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Animal (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/259.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 4576 bytes
+Keywords: imdb(11); movi(10); user(9); rate(8); 2004(7)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Marat / Sade (1967)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/260.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 6756 bytes
+Keywords: movi(16); marat(13); sade(13); user(11); imdb(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Big Clock (1948)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/261.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 6735 bytes
+Keywords: user(11); imdb(11); movi(10); clock(8); 1948(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Herbie Rides Again (1974)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/262.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 7169 bytes
+Keywords: herbi(11); imdb(11); movi(10); user(10); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Dragon Ball: Tournament Saga (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/263.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 2685 bytes
+Keywords: search(15); titl(10); dragon(9); ball(9); tournament(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Angelina Ballerina: Lights (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/264.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 2629 bytes
+Keywords: search(15); titl(9); movi(8); light(8); angelina(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Jeff Corwin Experience: Costa Rica and the Amazon (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/265.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 2907 bytes
+Keywords: search(15); experi(10); titl(10); jeff(9); corwin(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Saudade Do Futuro (2000)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/266.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 4386 bytes
+Keywords: imdb(11); movi(9); user(9); saudad(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Touched by an Angel: Season 1 (1994)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/267.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 3937 bytes
+Keywords: angel(22); titl(19); touch(18); search(15); aka(11)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: The Final Countdown (1980)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/268.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 3837 bytes
+Keywords: countdown(28); tv(16); search(15); titl(14); final(12)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Parenthood (1989)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/269.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 7631 bytes
+Keywords: movi(13); user(11); imdb(11); parenthood(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Sex and the City: Season 4 (2001)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/270.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 4186 bytes
+Keywords: citi(27); sex(16); titl(16); search(15); tv(10)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Saludos Amigos (1943)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/271.html
+Last Modification Date: Tue, 16 May 2023 05:03:32 GMT
+Size: 7115 bytes
+Keywords: disney(12); movi(11); user(11); imdb(11); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Female Yakuza Tale (1973)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/272.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 6321 bytes
+Keywords: imdb(11); movi(10); user(10); 1973(8); rate(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Taxi (2004)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/273.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 10708 bytes
+Keywords: taxi(251); aka(61); titl(41); tv(21); driver(21)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Crazy as Hell (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/274.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 6550 bytes
+Keywords: user(11); imdb(11); movi(10); rate(9); crazi(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Evelyn (2002)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/275.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 8940 bytes
+Keywords: movi(15); evelyn(15); user(11); imdb(11); stori(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Cold Harvest (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/276.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 5918 bytes
+Keywords: movi(12); imdb(11); user(10); hokey(10); rate(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Enigma: MCMXC A.D (2003)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/277.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 2464 bytes
+Keywords: search(15); titl(9); movi(8); enigma(8); mcmxc(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: 100 Days Before the Command (1990)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/278.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 5871 bytes
+Keywords: imdb(11); film(11); user(10); movi(9); command(8)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Micki and Maude (1984)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/279.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 3691 bytes
+Keywords: search(15); titl(13); maud(11); micki(10); movi(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: Sarah Brightman: In Concert (1998)
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/280.html
+Last Modification Date: Tue, 16 May 2023 05:03:34 GMT
+Size: 3296 bytes
+Keywords: sarah(16); brightman(16); search(15); concert(14); titl(14)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm
+Child Links: None
+
+----------------
+
+Page title: BBC news1
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc1.htm
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 1649 bytes
+Keywords: nest(6); kite(5); bird(4); success(4); project(3)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc.htm
+Child Links: None
+
+----------------
+
+Page title: BBC news2
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc2.htm
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 2136 bytes
+Keywords: bt(7); goonhilli(6); site(6); oper(3); job(3)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc.htm
+Child Links: None
+
+----------------
+
+Page title: BBC news3
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc3.htm
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 3301 bytes
+Keywords: west(10); ham(8); minut(7); sheringham(6); blackburn(5)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc.htm
+Child Links: None
+
+----------------
+
+Page title: CNN news1
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn1.htm
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 4427 bytes
+Keywords: accordion(13); play(7); student(7); wishek(7); instrument(6)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn.htm
+Child Links: None
+
+----------------
+
+Page title: CNN news2
+URL: https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn2.htm
+Last Modification Date: Tue, 16 May 2023 05:03:44 GMT
+Size: 6009 bytes
+Keywords: chang(12); climat(12); global(11); action(9); report(9)
+Parent Links: https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn.htm
 Child Links: None

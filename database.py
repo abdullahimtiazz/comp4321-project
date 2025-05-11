@@ -21,13 +21,12 @@ class Database:
             );
             
             CREATE TABLE IF NOT EXISTS page2length (
-                
                 page_id INTEGER,
-                length INTEGER,
-                PRIMARY KEY (page_id),
+                title_length DOUBLE,
+                body_length DOUBLE,
+                PRIMARY KEY (page_id)
                 FOREIGN KEY (page_id) REFERENCES pages(page_id)
-                
-            );   
+            ); 
 
             CREATE TABLE IF NOT EXISTS words (
                 word_id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -103,20 +103,59 @@ def search_engine(crawler, query, top_k=50):
         #wrong!
     dot_title = defaultdict(float)
     dot_body  = defaultdict(float)
-    # Precompute norm of query vector
-    query_norm = math.sqrt(sum(w ** 2 for w in query_vector.values()))
+    doc_score_title = defaultdict(float)
+    doc_score_body = defaultdict(float)
 
+    for term, weight in query_vector.items():
+        # Get documents containing the term in body or title
+        body_docs = set(crawler.index.get_docs_containing_word_body(term))
+        title_docs = set(crawler.index.get_docs_containing_word_title(term))
+
+        for doc in title_docs:
+            title_tf = crawler.calculate_title_tf(doc, term)
+            title_df = len(title_docs)
+            title_maxtf = crawler.calculate_title_maxtf(doc)
+            title_idf = math.log(N / title_df) if title_df > 0 else 0
+            doc_score_title[doc] += ((title_tf * title_idf) / title_maxtf )*query_vector[term] if title_maxtf > 0 else 0
+            
+
+        for doc in body_docs:
+            body_tf = crawler.calculate_body_tf(doc, term)
+            body_df = len(body_docs)
+            body_maxtf = crawler.calculate_body_maxtf(doc)
+            body_idf = math.log(N / body_df) if body_df > 0 else 0
+            doc_score_body[doc] += ((body_tf * body_idf) / body_maxtf)*query_vector[term] if body_maxtf > 0 else 0
+
+    # Combine scores
+    # total_doc_score = {}
+    # for doc in set(doc_score_title.keys()).union(doc_score_body.keys()):
+    #     title_score = doc_score_title[doc]
+    #     body_score = doc_score_body[doc]
+    #     total_score = 2 * title_score + body_score
+        #total_doc_score[doc] = total_score
+    # Precompute norm of query vector
+
+    query_norm = math.sqrt(sum(w ** 2 for w in query_vector.values()))
+    total_doc_score = defaultdict(float)
+    TITLE_WEIGHT = 2.0
     # Accumulate dot products for each document
     for term, weight in query_vector.items():
         # Get documents containing the term in body or title
         body_docs  = set(crawler.index.get_docs_containing_word_body(term))
         title_docs = set(crawler.index.get_docs_containing_word_title(term))
+        #dik =tf*idf/max_tf
+        
         for doc in body_docs:
-            dot_body[doc] += weight * crawler.calculate_body_tf(doc, term)
+            total_doc_score[doc] +=  doc_score_body[doc] / (query_norm * crawler.get_page_length_body(doc))
         for doc in title_docs:
-            dot_title[doc] += weight * crawler.calculate_title_tf(doc, term)
+            total_doc_score[doc] +=  (doc_score_title[doc] / (query_norm * crawler.get_page_length_title(doc)))* TITLE_WEIGHT
+    # Sort and rank by total doc score
+    sorted_docs = sorted(total_doc_score.items(), key=lambda x: x[1], reverse=True)
+    results = sorted_docs[:top_k]
 
-    return body_docs, title_docs
+    # Return ranked results
+    return [(doc, score) for doc, score in results]
+    
 
 
 
@@ -165,24 +204,24 @@ def search_engine(crawler, query, top_k=50):
     #doc_vectors[doc] = vec
 
     # 4. Cosine similarity
-    TITLE_WEIGHT = 2.0
-    results=[]
-    for doc in candidate_docs:
-    # Get L2 norms of title and body vectors
-        norm_title = crawler.index.get_page_length_title(doc)
-        norm_body  = crawler.index.get_page_length_body(doc)
+    
+    # results=[]
+    # for doc in candidate_docs:
+    # # Get L2 norms of title and body vectors
+    #     norm_title = crawler.index.get_page_length_title(doc)
+    #     norm_body  = crawler.index.get_page_length_body(doc)
 
-        # Compute cosine similarities (with division guard)
-        score1 = dot_title[doc] / (query_norm * norm_title) if norm_title > 0 else 0.0
-        score2 = dot_body[doc]  / (query_norm * norm_body)  if norm_body > 0 else 0.0
+    #     # Compute cosine similarities (with division guard)
+    #     score1 = dot_title[doc] / (query_norm * norm_title) if norm_title > 0 else 0.0
+    #     score2 = dot_body[doc]  / (query_norm * norm_body)  if norm_body > 0 else 0.0
 
-        # Final weighted score
-        score = 2 * score1 + score2
-        results.append((score, doc))
+    #     # Final weighted score
+    #     score = score1 + score2
+    #     results.append((score, doc))
 
-    # Sort and return top-k
-    results.sort(reverse=True, key=lambda x: x[0])
-    return [doc for (score, doc) in results[:top_k]]
+    # # Sort and return top-k
+    # results.sort(reverse=True, key=lambda x: x[0])
+    # return [doc for (score, doc) in results[:top_k]]
 
 def print_results(crawler, results):
     if not results:

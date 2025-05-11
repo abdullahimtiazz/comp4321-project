@@ -7,6 +7,7 @@ from database import Database
 from collections import deque
 import time
 from nltk.stem import PorterStemmer
+import math
 
 
 class Crawler:
@@ -513,3 +514,114 @@ class Crawler:
         keywords = [word for word, total in self.index.cursor.fetchall()]
         return keywords
 
+    def update_page_lengths(self):
+        N = self.index.get_total_doc_count()
+        self.index.cursor.execute("SELECT page_id FROM pages")
+        page_ids = [row[0] for row in self.index.cursor.fetchall()]
+
+        
+        for page_id in page_ids:
+            
+            self.index.cursor.execute("SELECT url FROM pages WHERE page_id=?", (page_id,))
+            page_row = self.index.cursor.fetchone()
+            page_url = page_row[0]
+            maxtf = self.calculate_title_maxtf(page_url)
+            print(maxtf)
+            # Get word_ids from title index
+            self.index.cursor.execute("""
+                SELECT word_id FROM inverted_index_title
+                WHERE page_id = ?
+                ORDER BY word_id
+            """, (page_id,))
+            title_word_ids = [row[0] for row in self.index.cursor.fetchall()]
+            
+            # Get word_ids from body index
+            self.index.cursor.execute("""
+                SELECT word_id FROM inverted_index_body
+                WHERE page_id = ?
+                ORDER BY word_id
+            """, (page_id,))
+            body_word_ids = [row[0] for row in self.index.cursor.fetchall()]
+
+            title_words = []
+            body_words = []
+            
+            if title_word_ids:
+                # Use parameterized query with IN clause for title words
+                self.index.cursor.execute(f"""
+                    SELECT word FROM words
+                    WHERE word_id IN ({','.join(['?']*len(title_word_ids))})
+                    ORDER BY word_id
+                """, title_word_ids)
+                title_words = [row[0] for row in self.index.cursor.fetchall()]
+            
+            if body_word_ids:
+                # Use parameterized query with IN clause for body words
+                self.index.cursor.execute(f"""
+                    SELECT word FROM words
+                    WHERE word_id IN ({','.join(['?']*len(body_word_ids))})
+                    ORDER BY word_id
+                """, body_word_ids)
+                body_words = [row[0] for row in self.index.cursor.fetchall()]
+
+            stemmer = PorterStemmer()
+            processed_title = [stemmer.stem(word.lower()) for word in title_words]
+            processed_body = [stemmer.stem(word.lower()) for word in body_words]
+            title_length = 0
+            body_length = 0
+
+            # tf*idf/max(tf)
+            for title_word in processed_title:
+                #idf = log(N/df+1)
+                idf = math.log(N / self.calculate_title_df(title_word)) if self.calculate_title_df(title_word) > 0 else 0
+                tf = self.calculate_title_df(title_word)
+                score = (tf * idf) / maxtf
+                title_length += (score**2)
+            
+            title_length = math.sqrt(title_length)
+
+            for body_word in processed_body:
+                #idf = log(N/df+1)
+                idf = math.log(N / self.calculate_body_df(body_word)) if self.calculate_body_df(body_word) > 0 else 0
+                tf = self.calculate_body_df(body_word)
+                score = (tf * idf) / maxtf
+                body_length += (score**2)
+            
+            body_length = math.sqrt(body_length)
+
+            self.index.cursor.execute('''
+                INSERT OR REPLACE INTO page2length (page_id, title_length, body_length)
+                VALUES (?, ?, ?)
+            ''', (page_id, title_length, body_length))
+
+    def get_page_length_title(self, url:str):
+        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
+        page_row = self.index.cursor.fetchone()
+        if not page_row:
+            return 1
+        page_id = page_row[0]
+
+        self.index.cursor.execute("""
+            SELECT title_length FROM page2length
+            WHERE page_id = ?
+        """, (page_id,))
+        result = self.index.cursor.fetchone()
+        
+        # Return 0 if no entry exists, otherwise return the length
+        return result[0] if result else 1
+
+    def get_page_length_body(self, url:str):
+        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
+        page_row = self.index.cursor.fetchone()
+        if not page_row:
+            return 1
+        page_id = page_row[0]
+
+        self.index.cursor.execute("""
+            SELECT body_length FROM page2length
+            WHERE page_id = ?
+        """, (page_id,))
+        result = self.index.cursor.fetchone()
+        
+        # Return 0 if no entry exists, otherwise return the length
+        return result[0] if result else 1
