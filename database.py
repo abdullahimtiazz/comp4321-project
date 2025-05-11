@@ -20,6 +20,15 @@ class Database:
                 size INTEGER
             );
             
+            CREATE TABLE IF NOT EXISTS page2length (
+                
+                page_id INTEGER,
+                length INTEGER,
+                PRIMARY KEY (page_id),
+                FOREIGN KEY (page_id) REFERENCES pages(page_id)
+                
+            );   
+
             CREATE TABLE IF NOT EXISTS words (
                 word_id INTEGER PRIMARY KEY AUTOINCREMENT,
                 word TEXT UNIQUE NOT NULL

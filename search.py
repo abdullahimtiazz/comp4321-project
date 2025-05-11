@@ -70,19 +70,23 @@ def search_engine(crawler, query, top_k=50):
 
     # 2. Build query vector (weight per term)
     query_counts = Counter(terms)
-    for phrase in terms:
-        query_counts[' '.join(phrase)] += 1
+    
     #we have tf
     query_vector = {}
-    #max_tf = max(query_counts.values())  # Get max tf for normalization
     query_maxtf = max(query_counts.values()) if query_counts else 1  # Ensure at least 1
+    
 
+    for term, tf in query_counts.items():
+        # fetch distinct docs containing the term in body or title
+            body_docs  = set(crawler.index.get_docs_containing_word_body(term))
+            title_docs = set(crawler.index.get_docs_containing_word_title(term))
+            df = len(body_docs | title_docs) 
+               # union = unique docs
+            if df == 0:
+                df = 1                           # avoid division by zero
+            idf = math.log(N / df)              # correct IDF
+            query_vector[term] = (tf / query_maxtf) * idf
 
-    for term in query_counts:
-        tf = query_counts[term]
-        idf= math.log(N / (crawler.calculate_body_df(term) + crawler.calculate_title_df(term))) if (crawler.calculate_body_df(term) + crawler.calculate_title_df(term)) > 0 else 0
-        # idf = math.log(N / (df + 1))  # Add 1 to avoid division by zero
-        query_vector[term] = (tf / query_maxtf) * idf  # always idf for query
     # for term in query_counts:
     #     if ' ' in term:
     #         # phrase: get df using min df of words in phrase
@@ -97,43 +101,88 @@ def search_engine(crawler, query, top_k=50):
     #     tf = query_counts[term]
     #     max_tf = tf
         #wrong!
-        
+    dot_title = defaultdict(float)
+    dot_body  = defaultdict(float)
+    # Precompute norm of query vector
+    query_norm = math.sqrt(sum(w ** 2 for w in query_vector.values()))
 
-    # 3. For each doc, build document vector (weight per term in the document)
-    doc_vectors = {}
-    TITLE_WEIGHT = 2.0  # Weight multiplier for title matches
-    for doc in candidate_docs:
-        vec = {}
-        # Efficiently get max_tf using DB-backed methods
-        body_maxtf = crawler.calculate_body_maxtf(doc)
-        title_maxtf = crawler.calculate_title_maxtf(doc)
-        max_tf = max(body_maxtf, TITLE_WEIGHT * title_maxtf, 1)  # Ensure at least 1
+    # Accumulate dot products for each document
+    for term, weight in query_vector.items():
+        # Get documents containing the term in body or title
+        body_docs  = set(crawler.index.get_docs_containing_word_body(term))
+        title_docs = set(crawler.index.get_docs_containing_word_title(term))
+        for doc in body_docs:
+            dot_body[doc] += weight * crawler.calculate_body_tf(doc, term)
+        for doc in title_docs:
+            dot_title[doc] += weight * crawler.calculate_title_tf(doc, term)
+
+    return body_docs, title_docs
+
+
+
+    # 4. Normalize into two cosine‐scores and combine
+    
+
+
+
+    # # 3. For each doc, build document vector (weight per term in the document)
+    # doc_vectors = {}
+    # TITLE_WEIGHT = 2.0  # Weight multiplier for title matches
+    # for doc in candidate_docs:
+    #     vec = {}
+    #     # Efficiently get max_tf using DB-backed methods
+    #     body_maxtf = crawler.calculate_body_maxtf(doc)
+    #     title_maxtf = crawler.calculate_title_maxtf(doc)
+    #     max_tf = max(body_maxtf, TITLE_WEIGHT * title_maxtf, 1)  # Ensure at least 1
+
+        # assume get_page_length_body get_page_length_title(url)
+        # q and title  , get cosine similarity = score1
+        # q and body , get cosine similarity = score2
+        #score = 2 * score1 + score2
+
+        # get_page_length_body(doc) is the length of the body
+        # get_page_length_title(doc) is the length of the title
+       
+        # dot product
+        # Use .get to handle missing terms
+        # for term in query_vector:
+        # score1= dot / (doc_norm1 * query_norm) if doc_norm and query_norm else 0.0
+        # doc_norm2 = math.sqrt(crawler.get_page_length_title(doc))
+        # score2= dot / (doc_norm2 * query_norm) if doc_norm and query_norm else 0.0
+        # score = TITLE_WEIGHT * score1 + score2
+
 
         # Retrieve all terms in the document
-        all_terms = crawler.get_all_terms_in_doc(doc)  # Assume this method retrieves all terms in the document
-
-        for term in all_terms:  # Use all terms in the document, not just query terms
-            tf_body = crawler.calculate_body_tf(doc, term)
-            tf_title = crawler.calculate_title_tf(doc, term)
-            tf = tf_body + TITLE_WEIGHT * tf_title  # Apply title weight multiplier
-            df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
-            if df == 0: df = 1
-            idf = math.log(N / df)
-            vec[term] = (tf * idf) / max_tf if max_tf > 0 else 0.0
-        doc_vectors[doc] = vec
+    #all_terms = crawler.get_all_terms_in_doc(doc)  # Assume this method retrieves all terms in the document
+        # for term in all_terms:  # Use all terms in the document, not just query terms
+        #     tf_body = crawler.calculate_body_tf(doc, term)
+        #     tf_title = crawler.calculate_title_tf(doc, term)
+        #     tf = tf_body + TITLE_WEIGHT * tf_title  # Apply title weight multiplier
+        #     df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
+        #     if df == 0: df = 1
+        #     idf = math.log(N / df)
+        #     vec[term] = (tf * idf) / max_tf if max_tf > 0 else 0.0
+    #doc_vectors[doc] = vec
 
     # 4. Cosine similarity
-    results = []
-    for doc, vec in doc_vectors.items():
-        dot = sum(vec.get(t, 0) * query_vector.get(t, 0) for t in query_vector)  # Use .get to handle missing terms
-        doc_norm = math.sqrt(sum(v**2 for v in vec.values()))
-        query_norm = math.sqrt(sum(v**2 for v in query_vector.values()))
-        score = dot / (doc_norm * query_norm) if doc_norm and query_norm else 0.0
-        results.append((doc, score))
+    TITLE_WEIGHT = 2.0
+    results=[]
+    for doc in candidate_docs:
+    # Get L2 norms of title and body vectors
+        norm_title = crawler.index.get_page_length_title(doc)
+        norm_body  = crawler.index.get_page_length_body(doc)
 
-    # 5. Top 50
-    results.sort(key=lambda x: x[1], reverse=True)
-    return results[:top_k]
+        # Compute cosine similarities (with division guard)
+        score1 = dot_title[doc] / (query_norm * norm_title) if norm_title > 0 else 0.0
+        score2 = dot_body[doc]  / (query_norm * norm_body)  if norm_body > 0 else 0.0
+
+        # Final weighted score
+        score = 2 * score1 + score2
+        results.append((score, doc))
+
+    # Sort and return top-k
+    results.sort(reverse=True, key=lambda x: x[0])
+    return [doc for (score, doc) in results[:top_k]]
 
 def print_results(crawler, results):
     if not results:
