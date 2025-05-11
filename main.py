@@ -6,7 +6,8 @@ crawler.generate_spider_result()
 # print("total frequency for cse in all page titles:", crawler.get_word_frequency_title("hkust"))
 from database import Database
 from nltk.stem import PorterStemmer
-
+import search
+from search import parse_query, search_engine
 # url = "https://comp4321-hkust.github.io/testpages/ust_cse/PG.htm"
 # word = "program"
 
@@ -52,4 +53,6 @@ print(f"DF in title of '{word}': {df_body} documents")
 max_tf = crawler.calculate_title_maxtf(url)
 print(f"Max tf in document in title '{url}': {max_tf}")
 
+print(parse_query('cse hkust'))
+print(search_engine(crawler, 'cse hkust'))  
 crawler.index.close()

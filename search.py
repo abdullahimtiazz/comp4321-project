@@ -11,13 +11,13 @@ def parse_query(query):
     """
     stemmer = PorterStemmer()
     # Extract phrases in quotes
-    phrases = re.findall(r'"([^"]+)"', query)
-    phrase_terms = [ [stemmer.stem(w.lower()) for w in re.findall(r"\b[\w']+\b", p)] for p in phrases ]
+    #phrases = re.findall(r'"([^"]+)"', query)
+    
     # Remove phrases from query
     query_wo_phrases = re.sub(r'"[^"]+"', '', query)
     # Remaining single terms
     terms = [stemmer.stem(w.lower()) for w in re.findall(r"\b[\w']+\b", query_wo_phrases)]
-    return terms, phrase_terms
+    return terms
 
 def get_docs_for_term(crawler, word):
     """Return set of URLs with this word in body or title."""
@@ -50,7 +50,7 @@ def get_docs_for_phrase(crawler, phrase):
     return result
 
 def search_engine(crawler, query, top_k=50):
-    terms, phrases = parse_query(query)
+    terms= parse_query(query)
     N = crawler.index.get_total_doc_count()
     if N == 0:
         print("No documents in DB. Did you crawl yet?")
@@ -60,33 +60,44 @@ def search_engine(crawler, query, top_k=50):
     doc_sets = []
     for t in terms:
         doc_sets.append(get_docs_for_term(crawler, t))
-    for phrase in phrases:
-        doc_sets.append(get_docs_for_phrase(crawler, phrase))
+    #for phrase in terms:
+     #   doc_sets.append(get_docs_for_phrase(crawler, phrase))
     if not doc_sets:
         print("No query terms found.")
         return []
     candidate_docs = set.union(*doc_sets) if doc_sets else set()
+    #return candidate_docs
 
     # 2. Build query vector (weight per term)
     query_counts = Counter(terms)
-    for phrase in phrases:
+    for phrase in terms:
         query_counts[' '.join(phrase)] += 1
-
+    #we have tf
     query_vector = {}
+    #max_tf = max(query_counts.values())  # Get max tf for normalization
+    query_maxtf = max(query_counts.values()) if query_counts else 1  # Ensure at least 1
+
+
     for term in query_counts:
-        if ' ' in term:
-            # phrase: get df using min df of words in phrase
-            phrase_words = term.split()
-            dfs = [crawler.calculate_body_df(w) + crawler.calculate_title_df(w) for w in phrase_words]
-            df = min(dfs) if dfs else 1
-            if df == 0: df = 1
-        else:
-            df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
-            if df == 0: df = 1
-        idf = math.log(N / df)
         tf = query_counts[term]
-        max_tf = tf
-        query_vector[term] = (tf / max_tf) * idf  # always idf for query
+        idf= math.log(N / (crawler.calculate_body_df(term) + crawler.calculate_title_df(term))) if (crawler.calculate_body_df(term) + crawler.calculate_title_df(term)) > 0 else 0
+        # idf = math.log(N / (df + 1))  # Add 1 to avoid division by zero
+        query_vector[term] = (tf / query_maxtf) * idf  # always idf for query
+    # for term in query_counts:
+    #     if ' ' in term:
+    #         # phrase: get df using min df of words in phrase
+    #         phrase_words = term.split()
+    #         dfs = [crawler.calculate_body_df(w) + crawler.calculate_title_df(w) for w in phrase_words]
+    #         df = min(dfs) if dfs else 1
+    #         if df == 0: df = 1
+    #     else:
+    #         df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
+    #         if df == 0: df = 1
+    #     idf = math.log(N / df)
+    #     tf = query_counts[term]
+    #     max_tf = tf
+        #wrong!
+        
 
     # 3. For each doc, build document vector (weight per term in the document)
     doc_vectors = {}
