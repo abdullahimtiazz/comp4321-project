@@ -1,22 +1,13 @@
 from crawler import Crawler
-crawler = Crawler(start_url= "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm", max_pages= 300)
+
+# ADJUST THE PARAMETERS BELOW AS NEEDED  
+crawler = Crawler(start_url= "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm", max_pages= 10)
+
 crawler.crawl()
-crawler.update_page_lengths()
 crawler.generate_spider_result()
-# print("total frequency for cse in all page bodies:", crawler.get_word_frequency_body("hkust"))
-# print("total frequency for cse in all page titles:", crawler.get_word_frequency_title("hkust"))
-from database import Database
-from nltk.stem import PorterStemmer
-import search
 from search import parse_query, search_engine
-# url = "https://comp4321-hkust.github.io/testpages/ust_cse/PG.htm"
-# word = "program"
 
-# url = "https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/PG.htm"
-# word = "postgradu"
-# word = "program"
-# word = "pg"
-
+# BELOW IS JUST TESTING PURPOSES. YOU MAY CHOOSE TO IGNORE IT.
 url = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm"
 word = "hkust"
 

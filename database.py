@@ -119,38 +119,6 @@ class Database:
             ''', (title, url, last_modified, size))
             self.conn.commit()
             return self.cursor.lastrowid
-    
-    # def _update_inverted_index_body(self, word_id: int):
-    #     """Update the inverted_index_body table with the total frequency of a word."""
-    #     # print("ok")
-    #     self.cursor.execute('''
-    #         SELECT SUM(frequency) 
-    #         FROM forward_index_body 
-    #         WHERE word_id = ?
-    #     ''', (word_id,))
-    #     total_frequency = self.cursor.fetchone()[0] or 0
-
-    #     self.cursor.execute('''
-    #         INSERT OR REPLACE INTO inverted_index_body (word_id, page_frequency)
-    #         VALUES (?, ?)
-    #     ''', (word_id, total_frequency))
-    #     # print("word_id: ", word_id, "total_frequency: ", total_frequency)
-    #     self.conn.commit()
-
-    # def _update_inverted_index_title(self, word_id: int):
-    #     """Update the inverted_index_title table with the total frequency of a word."""
-    #     self.cursor.execute('''
-    #         SELECT SUM(frequency) 
-    #         FROM forward_index_title 
-    #         WHERE word_id = ?
-    #     ''', (word_id,))
-    #     total_frequency = self.cursor.fetchone()[0] or 0
-
-    #     self.cursor.execute('''
-    #         INSERT OR REPLACE INTO inverted_index_title (word_id, page_frequency)
-    #         VALUES (?, ?)
-    #     ''', (word_id, total_frequency))
-    #     self.conn.commit()
 
     def add_entry_body(self, title: str, url: str, words: List[str], words_positions: List[int], last_modified: str, size: int):  
         """Add words from the page body to inverted_index_body."""

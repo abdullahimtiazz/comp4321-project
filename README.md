@@ -7,7 +7,8 @@ stay tuned :))
 1. Create a virtual environment: python -m venv .venv
 2. Open this virtual environment: .venv\Scripts\Activate
 3. Install requirements: pip install -r requirements.txt
-4. Test program and get "spider_result.txt": python main.py
+4. Populate database and get "spider_result.txt": python main.py
+5. Run the web interface using python app.py 
 
 # Output Format
 - Page title:
@@ -22,3 +23,5 @@ Note that Keywords are formatted as follows: {word}({frequency});
 
 # Database Schema
 Please refer to the word document (.doc file) in the same folder.
+
+# For further information, refer to the "COMP4321 Final Report.pdf" in the same directory as this file.

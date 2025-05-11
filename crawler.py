@@ -89,11 +89,6 @@ class Crawler:
                         title_words_positions.append(pos)
                     pos += 1
 
-                # title_words = [
-                #     stemmer.stem(word.lower()) for word in re.findall(r"\b[\w']+\b", self.title)
-                #     if stemmer.stem(word.lower()) not in self.stopwords
-                # ]
-
                 # Extract and index body words (filter stopwords)
                 body_text = soup.get_text(separator=" ", strip=True)
                 body_words = []
@@ -104,11 +99,6 @@ class Crawler:
                         body_words.append(stemmer.stem(word.lower()))
                         body_words_positions.append(pos)
                     pos += 1
-
-                # body_words = [
-                #     stemmer.stem(word.lower()) for word in re.findall(r"\b[\w']+\b", body_text)
-                #     if stemmer.stem(word.lower()) not in self.stopwords
-                # ]
 
                 self.index.add_entry_body(self.title,
                     url, body_words, body_words_positions,
@@ -219,47 +209,6 @@ class Crawler:
         
         keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
         return '; '.join(keywords) if keywords else "None"    
-        
-    # def _get_top_keywords(self, url: str) -> str:
-    #     """Get top 5 stemmed keywords (excluding stopwords) for a page."""
-    #     self.index.cursor.execute('''
-    #         SELECT w.word, 
-    #             (COALESCE(ib.frequency, 0) + COALESCE(it.frequency, 0)) AS total
-    #         FROM words w
-    #         LEFT JOIN inverted_index_body ib 
-    #             ON w.word_id = ib.word_id 
-    #             AND ib.page_id = (SELECT page_id FROM pages WHERE url = ?)
-    #         LEFT JOIN inverted_index_title it 
-    #             ON w.word_id = it.word_id 
-    #             AND it.page_id = (SELECT page_id FROM pages WHERE url = ?)
-    #         WHERE w.word NOT IN ({})
-    #         ORDER BY total DESC
-    #         LIMIT 5
-    #     '''.format(','.join(['?'] * len(self.stopwords))), 
-    #     (url, url, *self.stopwords))
-        
-    #     keywords = [f"{word}({total})" for word, total in self.index.cursor.fetchall()]
-    #     return '; '.join(keywords) if keywords else "None"
-    
-    # def get_word_frequency_body(self, word: str) -> int:
-    #     """Get the total frequency of a word in the body across all pages."""
-    #     self.index.cursor.execute('''
-    #         SELECT page_frequency 
-    #         FROM inverted_index_body 
-    #         WHERE word_id = (SELECT word_id FROM words WHERE word = ?)
-    #     ''', (word,))
-    #     row = self.index.cursor.fetchone()
-    #     return row[0] if row else 0
-    
-    # def get_word_frequency_title(self, word: str) -> int:
-    #     """Get the total frequency of a word in the body across all pages."""
-    #     self.index.cursor.execute('''
-    #         SELECT page_frequency 
-    #         FROM inverted_index_title 
-    #         WHERE word_id = (SELECT word_id FROM words WHERE word = ?)
-    #     ''', (word,))
-    #     row = self.index.cursor.fetchone()
-    #     return row[0] if row else 0
 
     def calculate_body_tf(self, url: str, word: str):
         """
