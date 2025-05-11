@@ -34,13 +34,16 @@ def get_docs_for_phrase(crawler, phrase):
     docs = get_docs_for_term(crawler, phrase[0])
     result = set()
     for url in docs:
-        positions = set(crawler.get_body_positions(url, phrase[0]))
+        page_id = crawler.get_page_id(url)
+        if page_id is None:
+            continue
+        positions = set(crawler.get_body_positions(page_id, phrase[0]))
         if not positions:
             continue
         for pos in positions:
             found = True
             for offset, word in enumerate(phrase[1:], 1):
-                next_positions = crawler.get_body_positions(url, word)
+                next_positions = crawler.get_body_positions(page_id, word)
                 if (pos + offset) not in next_positions:
                     found = False
                     break
@@ -92,18 +95,21 @@ def search_engine(crawler, query, top_k=50):
     doc_vectors = {}
     TITLE_WEIGHT = 2.0  # Weight multiplier for title matches
     for doc in candidate_docs:
+        page_id = crawler.get_page_id(doc)
+        if page_id is None:
+            continue
         vec = {}
         # Efficiently get max_tf using DB-backed methods
-        body_maxtf = crawler.calculate_body_maxtf(doc)
-        title_maxtf = crawler.calculate_title_maxtf(doc)
+        body_maxtf = crawler.calculate_body_maxtf(page_id)
+        title_maxtf = crawler.calculate_title_maxtf(page_id)
         max_tf = max(body_maxtf, TITLE_WEIGHT * title_maxtf, 1)  # Ensure at least 1
 
         # Retrieve all terms in the document
-        all_terms = crawler.get_all_terms_in_doc(doc)  # Assume this method retrieves all terms in the document
+        all_terms = crawler.get_all_terms_in_doc(page_id)  # Assume this method retrieves all terms in the document
 
         for term in all_terms:  # Use all terms in the document, not just query terms
-            tf_body = crawler.calculate_body_tf(doc, term)
-            tf_title = crawler.calculate_title_tf(doc, term)
+            tf_body = crawler.calculate_body_tf(page_id, term)
+            tf_title = crawler.calculate_title_tf(page_id, term)
             tf = tf_body + TITLE_WEIGHT * tf_title  # Apply title weight multiplier
             df = crawler.calculate_body_df(term) + crawler.calculate_title_df(term)
             if df == 0: df = 1

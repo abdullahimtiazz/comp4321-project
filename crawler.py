@@ -260,49 +260,31 @@ class Crawler:
     #     row = self.index.cursor.fetchone()
     #     return row[0] if row else 0
 
-    def calculate_body_tf(self, url: str, word: str):
-        """
-        Input: word (Needs to be stemmed in advance)
-        Calculate term frequency (TF) of a word in a document's body.
-        Returns TF (how many times does this word appear in a certain document's body.)
-        """
-        # Get page_id and word_id
+    def get_page_id(self, url: str) -> int:
+        """Helper to get page_id from url, returns None if not found."""
         self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
-        page_row = self.index.cursor.fetchone()
-        if not page_row:
-            return 0 
-        page_id = page_row[0]
-        
+        row = self.index.cursor.fetchone()
+        return row[0] if row else None
+
+    def calculate_body_tf(self, page_id: int, word: str):
+        """
+        Calculate term frequency (TF) of a word in a document's body.
+        Input: page_id (int), word (stemmed)
+        """
         word_id = self.index._get_or_create_word_id(word)
-        
-        # Get this word's frequency in the document
         self.index.cursor.execute('''
             SELECT frequency FROM inverted_index_body 
             WHERE word_id=? AND page_id=?
         ''', (word_id, page_id))
         result = self.index.cursor.fetchone()
-        if not result:
-            return 0
-        word_freq = result[0]
-        
-        # Return TF
-        return word_freq 
+        return result[0] if result else 0
 
-    def get_body_positions(self, url: str, word: str) -> List[int]:
+    def get_body_positions(self, page_id: int, word: str) -> List[int]:
         """
         Get all positions where a word appears in a document's body.
-        Returns list of positions (empty list if word not found).
+        Input: page_id (int), word (stemmed)
         """
-        # Get page_id and word_id
-        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
-        page_row = self.index.cursor.fetchone()
-        if not page_row:
-            return []
-        page_id = page_row[0]
-        
         word_id = self.index._get_or_create_word_id(word)
-        
-        # Get positions string from database
         self.index.cursor.execute('''
             SELECT positions FROM inverted_index_body 
             WHERE word_id=? AND page_id=?
@@ -310,11 +292,8 @@ class Crawler:
         result = self.index.cursor.fetchone()
         if not result or not result[0]:
             return []
-        
-        # Convert comma-separated string to list of integers
         return [int(pos) for pos in result[0].split(',')]
-        # return result[0]
-    
+
     def calculate_body_df(self, word: str) -> int:
         """
         Calculate document frequency (DF) of a word in all bodies.
@@ -333,72 +312,37 @@ class Crawler:
 
         return word_df
     
-    def calculate_body_maxtf(self, url: str):
+    def calculate_body_maxtf(self, page_id: int):
         """
         Calculate a document's max term frequency (max_tf) 
-        Returns the max count of words in a document
+        Input: page_id (int)
         """
-        page_id = None
-        self.index.cursor.execute('SELECT page_id FROM pages WHERE url = ?', (url,)) #Get the page_id of the url
-        page_row = self.index.cursor.fetchone()
-        if page_row:     # If the page is already in the table, get the page_id
-            page_id = page_row[0]
-            self.index.cursor.execute('''
-                SELECT maxtf FROM forward_index_body_page2maxtf
-                WHERE page_id=?
-            ''', (page_id, ))
-            result = self.index.cursor.fetchone()
-            if not result:
-                return 0
-            else:
-                maxtf = result[0]
-                return maxtf
+        self.index.cursor.execute('''
+            SELECT maxtf FROM forward_index_body_page2maxtf
+            WHERE page_id=?
+        ''', (page_id,))
+        result = self.index.cursor.fetchone()
+        return result[0] if result else 0
 
-        else:
-            return 0 # This url doesn't exist, the maxtf of it is 0 
-
-
-    def calculate_title_tf(self, url: str, word: str) -> float:
+    def calculate_title_tf(self, page_id: int, word: str) -> float:
         """
         Calculate term frequency (TF) of a word in a document's title.
-        Returns TF (how many times does this word appear in a certain document's title.)
+        Input: page_id (int), word (stemmed)
         """
-        # Get page_id and word_id
-        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
-        page_row = self.index.cursor.fetchone()
-        if not page_row:
-            return 0
-        page_id = page_row[0]
-        
         word_id = self.index._get_or_create_word_id(word)
-        
-        # Get this word's frequency in the title
         self.index.cursor.execute('''
             SELECT frequency FROM inverted_index_title 
             WHERE word_id=? AND page_id=?
         ''', (word_id, page_id))
         result = self.index.cursor.fetchone()
-        if not result:
-            return 0
-        word_freq = result[0]
-        
-        return word_freq
-    
-    def get_title_positions(self, url: str, word: str) -> List[int]:
+        return result[0] if result else 0
+
+    def get_title_positions(self, page_id: int, word: str) -> List[int]:
         """
         Get all positions where a word appears in a document's title.
-        Returns list of positions (empty list if word not found).
+        Input: page_id (int), word (stemmed)
         """
-        # Get page_id and word_id
-        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
-        page_row = self.index.cursor.fetchone()
-        if not page_row:
-            return []
-        page_id = page_row[0]
-        
         word_id = self.index._get_or_create_word_id(word)
-        
-        # Get positions string from database
         self.index.cursor.execute('''
             SELECT positions FROM inverted_index_title 
             WHERE word_id=? AND page_id=?
@@ -406,11 +350,8 @@ class Crawler:
         result = self.index.cursor.fetchone()
         if not result or not result[0]:
             return []
-        
-        # Convert comma-separated string to list of integers
         return [int(pos) for pos in result[0].split(',')]
-        # return result[0]
-    
+
     def calculate_title_df(self, word: str) -> int:
         """
         Calculate document frequency (DF) of a word in all titles.
@@ -429,18 +370,11 @@ class Crawler:
 
         return word_df
 
-    def get_all_terms_in_doc(self, url: str) -> List[str]:
+    def get_all_terms_in_doc(self, page_id: int) -> List[str]:
         """
         Retrieve all terms (stemmed) from the body and title of a document.
-        Returns a list of unique terms.
+        Input: page_id (int)
         """
-        # Get page_id
-        self.index.cursor.execute("SELECT page_id FROM pages WHERE url=?", (url,))
-        page_row = self.index.cursor.fetchone()
-        if not page_row:
-            return []
-        page_id = page_row[0]
-
         # Retrieve terms from the body
         self.index.cursor.execute('''
             SELECT w.word FROM words w
@@ -457,33 +391,19 @@ class Crawler:
         ''', (page_id,))
         title_terms = [row[0] for row in self.index.cursor.fetchall()]
 
-        # Combine and return unique terms
         return list(set(body_terms + title_terms))
 
-
-    def calculate_title_maxtf(self, url: str):
+    def calculate_title_maxtf(self, page_id: int):
         """
         Calculate a document's max term frequency (max_tf) in title
-        Returns the max count of words in a document's title
+        Input: page_id (int)
         """
-        page_id = None
-        self.index.cursor.execute('SELECT page_id FROM pages WHERE url = ?', (url,)) #Get the page_id of the url
-        page_row = self.index.cursor.fetchone()
-        if page_row:     # If the page is already in the table, get the page_id
-            page_id = page_row[0]
-            self.index.cursor.execute('''
-                SELECT maxtf FROM forward_index_title_page2maxtf
-                WHERE page_id=?
-            ''', (page_id, ))
-            result = self.index.cursor.fetchone()
-            if not result:
-                return 0
-            else:
-                maxtf = result[0]
-                return maxtf
-
-        else:
-            return 0 # This url doesn't exist, the maxtf of it is 0
+        self.index.cursor.execute('''
+            SELECT maxtf FROM forward_index_title_page2maxtf
+            WHERE page_id=?
+        ''', (page_id,))
+        result = self.index.cursor.fetchone()
+        return result[0] if result else 0
 
     def show_stemmed_keywords(self):
         self.index.cursor.execute("SELECT word FROM words") 
