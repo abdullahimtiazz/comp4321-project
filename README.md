@@ -8,6 +8,7 @@ stay tuned :))
 2. Open this virtual environment: .venv\Scripts\Activate
 3. Install requirements: pip install -r requirements.txt
 4. Test program and get "spider_result.txt": python main.py
+5. Run the search engine web interface: python app.py
 
 # Output Format
 - Page title:
@@ -22,3 +23,4 @@ Note that Keywords are formatted as follows: {word}({frequency});
 
 # Database Schema
 Please refer to the word document (.doc file) in the same folder.
+
